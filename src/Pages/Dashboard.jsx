@@ -1,0 +1,72 @@
+import { useLocation } from "react-router-dom";
+import styled, { css } from "styled-components";
+import HeadText from "../ui/HeadText";
+import Paragraph from "../ui/Paragraph";
+import Button from "../ui/Button";
+
+const StyledDashboard = styled.div`
+  height: 100%;
+`;
+
+const SideBg = styled.div`
+  /* background-color: blue; */
+  ${(props) =>
+    props.$pageurl === "/dashboard"
+      ? css`
+          transform: scale(1);
+        `
+      : css`
+          transform: scale(0.5);
+        `}
+  /* width: 50%; */
+  width: 720px;
+  min-width: 50vw;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  transition: all 0.5s;
+  overflow: hidden;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+`;
+
+const DashLeft = styled.div`
+  width: 50%;
+  height: 100%;
+  padding-right: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2.4rem;
+`;
+function Dashboard() {
+  const pageUrl = useLocation().pathname;
+  return (
+    <StyledDashboard>
+      <DashLeft>
+        <HeadText>IAC Group</HeadText>
+        <Paragraph>
+          Engineering for Agriculture & Food Industry. Consulting and Managing
+          Turn Key Projects.
+        </Paragraph>
+        <Button>Get in touch</Button>
+      </DashLeft>
+      <SideBg $pageurl={pageUrl}>
+        <img src="side_bg.svg" />
+      </SideBg>
+    </StyledDashboard>
+  );
+}
+
+export default Dashboard;
