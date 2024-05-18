@@ -1,0 +1,93 @@
+/* eslint-disable react/prop-types */
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import styled from "styled-components";
+
+const Controller = styled.div`
+  position: absolute;
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  right: ${(props) => (props.$color === "white" ? "25px" : 0)};
+  gap: 8px;
+  bottom: 80px;
+  /* transform: translate(-50%, -50%); */
+  transition: all 1s;
+  animation-name: showController;
+  animation-duration: 0.5s;
+
+  & button {
+    border: none;
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    transition: all 0.3s;
+
+    & svg {
+      font-size: 24px;
+      color: ${(props) => props.$color};
+    }
+
+    &:hover {
+      transform: scale(1.3);
+    }
+
+    &:first-child:active {
+      transform: translateY(-5px);
+    }
+    &:last-child:active {
+      transform: translateY(5px);
+    }
+  }
+
+  @keyframes showController {
+    0% {
+      transform: translateX(80px);
+    }
+    75% {
+      transform: translateX(-10px);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+`;
+
+const Dots = styled.ul`
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+`;
+function CarouselController({
+  color,
+  data,
+  activeItem,
+  selectActiveItem,
+  handlePrev,
+  handleNext,
+}) {
+  return (
+    <Controller $color={color}>
+      <button onClick={handlePrev}>
+        <IoIosArrowUp />
+      </button>
+      <Dots>
+        {data.map((item, i) => (
+          <li
+            onClick={() => selectActiveItem(i)}
+            className={`dot-${color} ${
+              i === activeItem ? `active-dot__${color}` : ""
+            }`}
+            key={i}
+          ></li>
+        ))}
+      </Dots>
+      <button onClick={handleNext}>
+        <IoIosArrowDown />
+      </button>
+    </Controller>
+  );
+}
+
+export default CarouselController;

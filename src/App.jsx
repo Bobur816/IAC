@@ -10,6 +10,7 @@ import ProductsLines from "./Pages/ProductsLines";
 import ProductsSingleMachines from "./Pages/ProductsSingleMachines";
 import ProductsCuttingMachines from "./Pages/ProductsCuttingMachines";
 import CarouselPage from "./Pages/CarouselPage";
+import Project from "./Pages/Project";
 
 function App() {
   return (
@@ -23,7 +24,11 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="about/carousel" element={<CarouselPage />} />
             <Route path="projects" element={<Projects />} />
-            <Route path="products" element={<Products />} />
+            <Route path="projects/:id" element={<Project />} />
+            <Route
+              path="products"
+              element={<Navigate replace to="/products/lines" />}
+            />
             <Route path="/products/lines" element={<ProductsLines />} />
             <Route
               path="/products/singlemachines"

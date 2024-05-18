@@ -10,17 +10,30 @@ const StyledLi = styled.li`
   margin: 6.4rem 0;
   display: flex;
   flex-direction: column;
-  transition: all 0.2s;
-  margin-left: 25px;
+  transition: all 0.1s;
+  margin-left: 30px;
+  /* height: 100vh; */
+  scroll-snap-align: start;
   /* overflow: hidden; */
 
   & svg {
     position: absolute;
+    height: 19px;
+    width: 19px;
     top: 50%;
-    left: -10px;
+    left: -20px;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 1px;
     transform: translate(-20px, -50%);
     color: #e6e6e6;
     z-index: 10;
+    /* transition: all 0.1s; */
+  }
+
+  & h3,
+  & p {
+    color: ${(props) => (props.$isactive === "active" ? "green" : "auto")};
   }
 
   &:hover h3,
@@ -29,7 +42,7 @@ const StyledLi = styled.li`
   }
 
   & div {
-    transition: all 0.2s;
+    transition: all 0.1s;
     &:hover {
       transform: scale(1.02);
     }
@@ -48,12 +61,11 @@ const ProjectSubTitle = styled.p`
   font-weight: 400;
 `;
 // eslint-disable-next-line react/prop-types
-function SliderItem({ project }) {
+function SliderItem({ onClick, isActive, project }) {
   // eslint-disable-next-line react/prop-types
-  const { projectName, projectWork, projectInfo } = project;
-  console.log(project);
+  const { projectName, projectWork } = project;
   return (
-    <StyledLi>
+    <StyledLi $isactive={isActive} onClick={onClick}>
       <FaCircleDot />
       <div>
         <ProjectTitle>{projectName}</ProjectTitle>

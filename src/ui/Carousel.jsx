@@ -1,13 +1,14 @@
 /* eslint-disable react/prop-types */
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import CarouselController from "./CarouselController";
 
 const StyledCarousel = styled.div`
   /* background-color: red; */
   display: block;
-  position: absolute;
-  overflow: hidden;
+  /* position: relative; */
+  /* overflow: hidden; */
   top: 0;
   left: 0;
   height: 100%;
@@ -16,23 +17,76 @@ const StyledCarousel = styled.div`
   transition: all 1s;
 `;
 
-const CarouselSlider = styled.div`
+const CarouselSlider = styled.ul`
   background-image: url(${(props) => props.$imgurl});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  transition: all 0.5s;
+  /* transition: all 0.5s; */
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 100dvh;
   width: 100%;
+  overflow: hidden;
   animation-name: showCarrousel;
   animation-duration: 0.5s;
 
-  @keyframes showCarrousel {
+  /* @keyframes showCarrousel {
     from {
       transform: scale(1.1);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  } */
+`;
+
+const StoryBox = styled.div`
+  background-color: black;
+  display: flex;
+  bottom: 7.5rem;
+  left: 4.4rem;
+  flex-direction: column;
+  width: 44%;
+  position: absolute;
+  padding: 24px;
+  gap: 24px;
+  color: #fff;
+`;
+const StoryTitle = styled.h4`
+  font-family: "New York";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 568;
+  line-height: normal;
+`;
+const StoryText = styled.p`
+  color: rgba(255, 255, 255, 0.8);
+  display: inline-block;
+  font-family: Inter;
+  white-space: break-spaces;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+`;
+
+const Item = styled.li`
+  background-image: url(${(props) => props.$imgurl});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 100%;
+  animation-name: carouselbg;
+  animation-duration: 1s;
+
+  @keyframes carouselbg {
+    from {
+      transform: scale(0.8);
       opacity: 0;
     }
     to {
@@ -42,74 +96,78 @@ const CarouselSlider = styled.div`
   }
 `;
 
-const CarouselController = styled.div`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  right: 15px;
-  bottom: 100px;
-  /* transform: translate(-50%, -50%); */
-  transition: all 1s;
-  animation-name: showController;
-  animation-duration: 0.5s;
-
-  @keyframes showController {
-    0% {
-      transform: translateX(50px);
-    }
-    75% {
-      transform: translateX(50px);
-    }
-    to {
-      transform: translateX(0);
-    }
-  }
-`;
 // eslint-disable-next-line react/prop-types
 function Carousel() {
-  const data = useSelector((state) => state.ui.aboutInfo);
-  //   Array.from({ length: 10 }).forEach((_, i) => data.push(i));
+  const abouts = useSelector((state) => state.ui.aboutInfo);
+  //   Array.from({ length: 10 }).forEach((_, i) => abouts.push(i));
   const [activeSlide, setActiveSlide] = useState(0);
   //   console.log(activeSlide);
   const ref = useRef();
   //   console.log(ref.current);
 
   function handlePrev() {
-    setActiveSlide((i) => (i === 0 ? (i = data.length - 1) : i - 1));
+    setActiveSlide((e) => (e === 0 ? e : e - 1));
   }
 
   function handleNext() {
-    setActiveSlide((i) => (i === data.length - 1 ? (i = 0) : i + 1));
+    setActiveSlide((e) => (e === abouts.length - 1 ? e : e + 1));
+    // console.log(activeSlide);
   }
 
-  const { title, subtitle, imgUrl } = data[activeSlide];
+  // const { title, subtitle, imgUrl } = abouts[activeSlide];
+
+  const selectSlide = (i) => {
+    setActiveSlide(i);
+    const activeSlide1 = ref.current.children[activeSlide];
+    console.log(activeSlide1);
+    // activeSlide1.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  useEffect(() => {
+    const activeSlide1 = ref.current.children[activeSlide];
+    if (activeSlide1)
+      activeSlide1.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [activeSlide]);
 
   return (
     <StyledCarousel>
-      <CarouselSlider $imgurl={imgUrl}>
-        {/* {data.map((item, i) => (
-          <img
-            src={item.imgUrl}
-            className={`slide ${data[i] === activeSlide ? "active-slide" : ""}`}
-            key={item.imgUrl}
-          />
-        ))} */}
+      <CarouselSlider ref={ref}>
+        {abouts.map((aboutItem, i) => (
+          <Item $imgurl={aboutItem.imgUrl} key={aboutItem.id}>
+            <StoryBox>
+              <StoryTitle>{aboutItem.title}</StoryTitle>
+              <StoryText>{aboutItem.subtitle}</StoryText>
+            </StoryBox>
+          </Item>
+        ))}
       </CarouselSlider>
-      <CarouselController>
-        <button onClick={handlePrev}>prev</button>
-        <ul ref={ref}>
-          {data.map((item, i) => (
+      {/* <CarouselController>
+        <button onClick={handlePrev}>
+          <IoIosArrowUp />
+        </button>
+        <Dots>
+          {abouts.map((item, i) => (
             <li
-              onClick={() => setActiveSlide(i)}
-              className={`dot ${i === activeSlide ? "active-dot" : ""}`}
+              onClick={() => selectSlide(i)}
+              className={`dot-white ${
+                i === activeSlide ? "active-dot__white" : ""
+              }`}
               key={i}
-            >
-              {i}
-            </li>
+            ></li>
           ))}
-        </ul>
-        <button onClick={handleNext}>next</button>
-      </CarouselController>
+        </Dots>
+        <button onClick={handleNext}>
+          <IoIosArrowDown />
+        </button>
+      </CarouselController> */}
+      <CarouselController
+        color="white"
+        data={abouts}
+        handleNext={handleNext}
+        handlePrev={handlePrev}
+        activeItem={activeSlide}
+        selectActiveItem={selectSlide}
+      />
     </StyledCarousel>
   );
 }

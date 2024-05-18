@@ -9,7 +9,7 @@ const StyledSlider = styled.div`
   position: relative;
   height: 100%;
   width: 100%;
-  /* background-color: red; */
+  background-color: red;
   /* overflow-y: scroll; */
   /* overflow-x: hidden; */
 `;
@@ -20,11 +20,7 @@ const Test = styled.div`
   width: 100%;
   /* overflow: visible; */
   overflow-y: scroll;
-  /* background-color: blue; */
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  background-color: blue;
 `;
 
 const SliderBox = styled.ul`
@@ -33,26 +29,25 @@ const SliderBox = styled.ul`
   /* height: 100%; */
   width: 90%;
   left: 10px;
-  border-left: 1px solid #e6e6e6;
+  border: 1px solid red;
   /* left: 10px; */
   /* margin-left: 15px; */
   /* overflow-y: scroll; */
   overflow-x: visible;
-  animation-name: animate1;
-  animation-duration: 2s;
-
-  @keyframes animate1 {
-    from {
-      transform: translateY(40px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
+  &::-webkit-scrollbar {
+    display: none;
   }
 
-  /* background-color: yellow; */
+  &::before {
+    content: "";
+    /* display: inline-block; */
+    position: absolute;
+    width: 1px;
+    left: 9px;
+    height: 100%;
+    background-color: #e6e6e6;
+  }
+  background-color: yellow;
 `;
 
 function MySlider() {

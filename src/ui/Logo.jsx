@@ -1,16 +1,20 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledLogo = styled(NavLink)`
   display: flex;
   align-items: center;
+  transition: all 0.3s;
 `;
 
 const Img = styled.img``;
 function Logo() {
+  const pageUrl = useLocation().pathname;
   return (
     <StyledLogo to="/dashboard">
-      <Img src="/Logo.svg" />
+      <Img
+        src={pageUrl === "/about/carousel" ? "/Logo-white.svg" : "/Logo.svg"}
+      />
     </StyledLogo>
   );
 }

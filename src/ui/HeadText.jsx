@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledHeadText = styled.h1`
   font-family: "New York";
-  font-size: 64px;
+  font-size: 6.4rem;
   font-style: normal;
   font-weight: 568;
   line-height: normal;

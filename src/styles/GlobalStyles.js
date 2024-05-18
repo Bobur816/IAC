@@ -83,7 +83,7 @@ html {
 
 body {
   font-family: "Inter", sans-serif;
-
+  overflow: hidden;
   transition: color 0.3s, background-color 0.3s;
   min-height: 100vh;
   line-height: 1.5;
@@ -128,7 +128,7 @@ ul {
   list-style: none;
 }
 
-p,
+/* p,
 h1,
 h2,
 h3,
@@ -137,7 +137,7 @@ h5,
 h6 {
   overflow-wrap: break-word;
   hyphens: auto;
-}
+} */
 
 img {
   max-width: 100%;
@@ -148,7 +148,7 @@ img {
 
 .slide {
   background-color: pink;
-  /* display: none; */
+  display: none;
 }
 
 .active-slide {
@@ -157,7 +157,37 @@ img {
 
 }
 
-.active-dot {
+.dot-white {
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: #fff;
+  opacity: 50%;
+  height: 6px;
+  width: 6px;
+  border-radius: 10px
+}
+
+.active-dot__white {
+  opacity: 100%;
+  height: 33px;
+}
+
+.dot-green {
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: #009035;
+  opacity: 50%;
+  height: 6px;
+  width: 6px;
+  border-radius: 10px
+}
+
+.active-dot__green {
+  opacity: 100%;
+  height: 33px;
+}
+
+.active-slide {
   background-color: green;
 }
 `;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledP = styled.p`
   color: var(--color-black-1000-50);
   font-family: Inter;
-  font-size: 24px;
+  font-size: 2.4rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;

@@ -33,7 +33,7 @@ const StyledAppLayout = styled.div`
   -moz-transition: background 0.7s;
   -o-transition: background 0.7s;
   transition: background 0.7s;
-  position: relative;
+  /* position: relative; */
   height: 100vh;
   padding-left: 32px;
   padding-right: 32px;
@@ -44,7 +44,7 @@ const StyledAppLayout = styled.div`
 const Main = styled.main`
   & > div {
     height: 100%;
-    overflow: visible;
+    /* overflow: visible; */
   }
 `;
 function AppLayout() {
