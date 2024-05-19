@@ -1,7 +1,8 @@
 import { Outlet, useLocation } from "react-router-dom";
-import Header from "./Header";
+import Header from "./Navbar";
 import Footer from "./Footer";
 import styled, { css } from "styled-components";
+import Container from "./Container";
 
 const StyledAppLayout = styled.div`
   ${(props) =>
@@ -28,23 +29,32 @@ const StyledAppLayout = styled.div`
           background-position: center;
           background-size: cover;
         `};
-  display: grid;
   -webkit-transition: background 0.7s;
   -moz-transition: background 0.7s;
   -o-transition: background 0.7s;
   transition: background 0.7s;
   /* position: relative; */
-  height: 100vh;
-  padding-left: 32px;
-  padding-right: 32px;
-  grid-template-rows: 9rem 1fr 7.5rem;
+  /* background-color: red; */
+  background-attachment: fixed;
   background-repeat: no-repeat;
+  display: grid;
+
+  ${(props) =>
+    props.$pageurl.includes("products") || props.$pageurl.includes("partners")
+      ? css`
+          grid-template-rows: 1fr auto;
+          height: 100%;
+        `
+      : css`
+          grid-template-rows: auto 1fr auto;
+          height: 100vh;
+        `}
 `;
 
 const Main = styled.main`
+  width: 100%;
   & > div {
     height: 100%;
-    /* overflow: visible; */
   }
 `;
 function AppLayout() {
@@ -53,7 +63,9 @@ function AppLayout() {
     <StyledAppLayout $pageurl={pageUrl}>
       <Header />
       <Main>
-        <Outlet />
+        <Container>
+          <Outlet />
+        </Container>
       </Main>
       <Footer />
     </StyledAppLayout>

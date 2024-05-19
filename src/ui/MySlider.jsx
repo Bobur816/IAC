@@ -39,7 +39,7 @@ const SliderBox = styled.ul`
   /* overflow-y: scroll; */
   overflow-x: visible;
   animation-name: animate1;
-  animation-duration: 2s;
+  animation-duration: 1s;
 
   @keyframes animate1 {
     from {
@@ -51,8 +51,6 @@ const SliderBox = styled.ul`
       opacity: 1;
     }
   }
-
-  /* background-color: yellow; */
 `;
 
 function MySlider() {

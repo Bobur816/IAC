@@ -81,16 +81,17 @@ const Item = styled.li`
   background-repeat: no-repeat;
   position: relative;
   height: 100%;
+  z-index: 0;
   animation-name: carouselbg;
   animation-duration: 1s;
 
   @keyframes carouselbg {
     from {
-      transform: scale(0.8);
+      /* transform: scale(0.8); */
       opacity: 0;
     }
     to {
-      transform: scale(1);
+      /* transform: scale(1); */
       opacity: 1;
     }
   }
@@ -118,9 +119,6 @@ function Carousel() {
 
   const selectSlide = (i) => {
     setActiveSlide(i);
-    const activeSlide1 = ref.current.children[activeSlide];
-    console.log(activeSlide1);
-    // activeSlide1.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   useEffect(() => {
@@ -132,7 +130,7 @@ function Carousel() {
   return (
     <StyledCarousel>
       <CarouselSlider ref={ref}>
-        {abouts.map((aboutItem, i) => (
+        {abouts.map((aboutItem) => (
           <Item $imgurl={aboutItem.imgUrl} key={aboutItem.id}>
             <StoryBox>
               <StoryTitle>{aboutItem.title}</StoryTitle>

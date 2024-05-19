@@ -11,6 +11,7 @@ import ProductsSingleMachines from "./Pages/ProductsSingleMachines";
 import ProductsCuttingMachines from "./Pages/ProductsCuttingMachines";
 import CarouselPage from "./Pages/CarouselPage";
 import Project from "./Pages/Project";
+import Product from "./Pages/Product";
 
 function App() {
   return (
@@ -25,19 +26,24 @@ function App() {
             <Route path="about/carousel" element={<CarouselPage />} />
             <Route path="projects" element={<Projects />} />
             <Route path="projects/:id" element={<Project />} />
+
             <Route
               path="products"
-              element={<Navigate replace to="/products/lines" />}
+              element={<Navigate replace to="/products/processing-lines" />}
             />
-            <Route path="/products/lines" element={<ProductsLines />} />
             <Route
-              path="/products/singlemachines"
+              path="/products/processing-lines"
+              element={<ProductsLines />}
+            />
+            <Route
+              path="/products/single-machines"
               element={<ProductsSingleMachines />}
             />
             <Route
-              path="/products/cuttingmachines"
+              path="/products/cutting-machines"
               element={<ProductsCuttingMachines />}
             />
+            <Route path="/products/:id" element={<Product />} />
             <Route path="partners" element={<Partners />} />
           </Route>
         </Routes>

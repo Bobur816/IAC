@@ -82,8 +82,9 @@ html {
 }
 
 body {
+  position: relative;
   font-family: "Inter", sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
   transition: color 0.3s, background-color 0.3s;
   min-height: 100vh;
   line-height: 1.5;
@@ -190,6 +191,21 @@ img {
 .active-slide {
   background-color: green;
 }
+
+.right-animate{
+  animation: fadein 3s;
+
+  
+}
+
+@keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 100;
+    }
+  }
 `;
 
 export default GlobalStyles;

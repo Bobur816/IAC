@@ -7,15 +7,18 @@ const StyledPartners = styled.div`
   /* width: 100%; */
   /* background-color: red; */
   display: flex;
-  position: relative;
-  overflow-y: scroll;
+  /* position: relative; */
+  /* overflow-y: scroll; */
   /* overflow: visible; */
   /* justify-content: space-around; */
   flex-direction: column;
-  padding-top: 3rem;
+  height: 100%;
+
+  padding-top: 14rem;
+  margin-bottom: 100px;
 
   & > div {
-    position: absolute;
+    /* position: absolute; */
   }
 `;
 const ForHead = styled.div`
@@ -23,8 +26,7 @@ const ForHead = styled.div`
   /* background-color: blue; */
   flex-direction: column;
   display: flex;
-  gap: 2.4rem;
-  margin-bottom: 6.8rem;
+  margin-bottom: auto;
 `;
 
 const CardContainer = styled.div`
@@ -33,6 +35,7 @@ const CardContainer = styled.div`
   gap: 63px;
   /* background-color: yellow; */
 `;
+
 const Card = styled.div`
   background-color: #fff;
   width: 48%;

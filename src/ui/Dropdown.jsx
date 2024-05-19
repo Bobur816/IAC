@@ -135,15 +135,17 @@ function Dropdown({ type }) {
           $homeurl={homeurl}
         >
           <li>
-            <StyledNavLink to="/products/lines">Processing Lines</StyledNavLink>
+            <StyledNavLink to="/products/processing-lines">
+              Processing Lines
+            </StyledNavLink>
           </li>
           <li>
-            <StyledNavLink to="/products/singlemachines">
+            <StyledNavLink to="/products/single-machines">
               Single Machines
             </StyledNavLink>
           </li>
           <li>
-            <StyledNavLink to="/products/cuttingmachines">
+            <StyledNavLink to="/products/cutting-machines">
               Cutting Machines
             </StyledNavLink>
           </li>

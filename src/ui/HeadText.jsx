@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const StyledHeadText = styled.h1`
+const Styleh1 = css`
   font-family: "New York";
   font-size: 6.4rem;
   font-style: normal;
@@ -8,6 +8,7 @@ const StyledHeadText = styled.h1`
   line-height: normal;
   animation-name: example;
   animation-duration: 1s;
+  margin-bottom: 2.4rem;
 
   @keyframes example {
     from {
@@ -21,9 +22,18 @@ const StyledHeadText = styled.h1`
   }
 `;
 
+const StyledHeadText = styled.h1`
+  ${Styleh1}
+`;
+
+const StyledHeadTextH2 = styled.h2`
+  ${Styleh1}
+`;
+
 // eslint-disable-next-line react/prop-types
-function HeadText({ children }) {
-  return <StyledHeadText>{children}</StyledHeadText>;
+function HeadText({ type, children }) {
+  if (type === "h1") return <StyledHeadText>{children}</StyledHeadText>;
+  return <StyledHeadTextH2>{children}</StyledHeadTextH2>;
 }
 
 export default HeadText;

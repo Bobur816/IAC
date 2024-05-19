@@ -1,77 +1,45 @@
 import styled from "styled-components";
-import Button from "./Button";
+import { useSelector } from "react-redux";
+import CardItem from "./CardItem";
+import { useLocation } from "react-router-dom";
 
 const StyledCards = styled.div`
-  background-color: red;
+  /* background-color: red; */
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-items: baseline;
+  /* justify-content: space-between; */
   gap: 2.4rem;
+  row-gap: 7rem;
   height: fit-content;
-`;
+  animation-name: animateCards;
+  animation-duration: 0.5s;
 
-const StyledCard = styled.div`
-  background-color: darkblue;
-  width: 25%;
-  /* height: 36rem; */
-  padding: 12px;
-
-  & h2 {
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    margin-bottom: 12px;
-  }
-
-  & button {
-    width: 100%;
-    line-height: 10px;
+  @keyframes animateCards {
+    from {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 `;
 
-const ImgBox = styled.div`
-  height: 202px;
-  overflow: hidden;
-  margin-bottom: 2.4rem;
-  & img {
-    height: 100%;
-    width: 100%;
-    /* overflow: hidden; */
-    object-fit: cover;
-    z-index: 0;
-  }
-`;
 function Cards() {
+  const { products } = useSelector((state) => state.ui);
+  const pageUrl = useLocation().pathname.split("/");
+  const data = products.filter(
+    (product) => product.type === pageUrl.slice(-1)[0]
+  );
   return (
     <StyledCards>
-      <StyledCard>
-        <ImgBox>
-          <img src="/productImg-1.svg" alt="" />
-        </ImgBox>
-        <h2>Here will be the awesome product title</h2>
-        <Button>More details</Button>
-      </StyledCard>
-      <StyledCard>
-        <ImgBox>
-          <img src="/productImg-1.svg" alt="" />
-        </ImgBox>
-        <h2>Here will be the awesome product title</h2>
-        <Button>More details</Button>
-      </StyledCard>
-      <StyledCard>
-        <ImgBox>
-          <img src="/productImg-1.svg" alt="" />
-        </ImgBox>
-        <h2>Here will be the awesome product title</h2>
-        <Button>More details</Button>
-      </StyledCard>
-      <StyledCard>
-        <ImgBox>
-          <img src="/productImg-1.svg" alt="" />
-        </ImgBox>
-        <h2>Here will be the awesome product title</h2>
-        <Button>More details</Button>
-      </StyledCard>
+      {data.map((card) => (
+        <CardItem card={card} key={card.id} />
+      ))}
     </StyledCards>
   );
 }

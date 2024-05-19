@@ -1,14 +1,20 @@
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import Container from "./Container";
 
-const StyledFooter = styled.footer`
-  /* background-color: yellow; */
+const FooterWrapper = styled.footer`
+  /* background-color: #ffff007f; */
+  height: 7.5rem;
+  z-index: 1;
+  bottom: 0;
+`;
 
+const StyledFooter = styled.div`
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1;
 `;
 
 const Span = styled.span`
@@ -33,6 +39,7 @@ const Socials = styled.ul`
 
 const Link = styled.a`
   text-decoration: none;
+  display: flex;
   /* color: var(--color-grey-600); */
 
   & svg {
@@ -53,26 +60,30 @@ const Link = styled.a`
 function Footer() {
   const pageurl = useLocation().pathname;
   return (
-    <StyledFooter>
-      <Socials $pageurl={pageurl}>
-        <li>
-          <Link href="https://facebook.com">
-            <FaFacebook />
-          </Link>
-        </li>
-        <li>
-          <Link href="https://twitter.com">
-            <FaTwitter />
-          </Link>
-        </li>
-        <li>
-          <Link href="https://instagram.com">
-            <FaInstagram />
-          </Link>
-        </li>
-      </Socials>
-      <Span $pageurl={pageurl}>IAC Group</Span>
-    </StyledFooter>
+    <FooterWrapper $pageurl={pageurl}>
+      <Container>
+        <StyledFooter>
+          <Socials $pageurl={pageurl}>
+            <li>
+              <Link href="https://facebook.com">
+                <FaFacebook />
+              </Link>
+            </li>
+            <li>
+              <Link href="https://twitter.com">
+                <FaTwitter />
+              </Link>
+            </li>
+            <li>
+              <Link href="https://instagram.com">
+                <FaInstagram />
+              </Link>
+            </li>
+          </Socials>
+          <Span $pageurl={pageurl}>IAC Group</Span>
+        </StyledFooter>
+      </Container>
+    </FooterWrapper>
   );
 }
 

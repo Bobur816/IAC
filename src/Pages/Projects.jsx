@@ -2,10 +2,12 @@ import styled from "styled-components";
 import HeadText from "../ui/HeadText";
 import Paragraph from "../ui/Paragraph";
 import ProjectRight from "../ui/ProjectRight";
+import { Outlet } from "react-router-dom";
 
 const StyledProjects = styled.div`
-  /* background-image: url("bgProjects.svg"); */
   display: flex;
+  width: 100%;
+  height: 100%;
 `;
 
 const LefttSide = styled.div`
@@ -13,7 +15,6 @@ const LefttSide = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2.4rem;
 `;
 function Projects() {
   return (
@@ -23,6 +24,7 @@ function Projects() {
         <Paragraph>Here you can find our reference list and projects</Paragraph>
       </LefttSide>
       <ProjectRight />
+      <Outlet />
     </StyledProjects>
   );
 }

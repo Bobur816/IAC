@@ -55,7 +55,7 @@ function Dashboard() {
   return (
     <StyledDashboard>
       <DashLeft>
-        <HeadText>IAC Group</HeadText>
+        <HeadText type="h1">IAC Group</HeadText>
         <Paragraph>
           Engineering for Agriculture & Food Industry. Consulting and Managing
           Turn Key Projects.

@@ -14,12 +14,12 @@ const LefttSide = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 2.4rem;
-  /* background-color: red; */
+  background-color: red;
 `;
 
 const RightSide = styled.div`
   position: relative;
-  /* padding-top: 10px; */
+  padding-top: 10px;
   /* background-color: red; */
   height: 100%;
   width: 50%;
@@ -40,9 +40,9 @@ const Inside = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 24px;
-  animation-name: animate2;
+  transition: all 3s;
+  /* animation-name: animate2;
   animation-duration: 1s;
-  padding: 50px 0;
 
   @keyframes animate2 {
     from {
@@ -53,7 +53,7 @@ const Inside = styled.div`
       transform: translateY(0);
       opacity: 1;
     }
-  }
+  } */
 `;
 
 const ProjectTitle = styled.h3`
@@ -82,24 +82,20 @@ function Project() {
   const { projects } = useSelector((state) => state.ui);
   const { id } = useParams();
   const project = projects.find((item) => item.id === id);
+  console.log(project);
   return (
-    <StyledProject>
-      <LefttSide>
-        <HeadText>Projects</HeadText>
-        <Paragraph>Here you can find our reference list and projects</Paragraph>
-      </LefttSide>
+    <>
       <RightSide>
-        <Inside>
+        <Inside className="right-animate">
           <div>
             <ProjectTitle>{project.projectName}</ProjectTitle>
-
             <ProjectSubTitle>{project.projectWork}</ProjectSubTitle>
           </div>
           <img src={project.projectImgUrl} alt={id} />
           <ProjectParagraph>{project.projectInfo}</ProjectParagraph>
         </Inside>
       </RightSide>
-    </StyledProject>
+    </>
   );
 }
 

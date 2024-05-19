@@ -111,6 +111,233 @@ const initialState = {
       projectImgUrl: "/aboutBg1.svg",
     },
   ],
+  products: [
+    {
+      id: "product-001",
+      type: "single-machines",
+      title: "Product title 01",
+      description: "product description",
+      infoText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ",
+      imgUrl: "/productImg-1.svg",
+      imgCollection: [
+        "/aboutBg2.svg",
+        "/productImg-1.svg",
+        "/aboutBg1.svg",
+        "/productImg-1.svg",
+      ],
+    },
+    {
+      id: "product-002",
+      type: "single-machines",
+      title: "Product title 02",
+      description: "product description",
+      infoText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ",
+      imgUrl: "/productImg-1.svg",
+      imgCollection: [
+        "/aboutBg2.svg",
+        "/productImg-1.svg",
+        "/aboutBg1.svg",
+        "/productImg-1.svg",
+      ],
+    },
+    {
+      id: "product-003",
+      type: "single-machines",
+      title: "Product title 03",
+      description: "product description",
+      infoText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ",
+      imgUrl: "/productImg-1.svg",
+      imgCollection: [
+        "/aboutBg2.svg",
+        "/productImg-1.svg",
+        "/aboutBg1.svg",
+        "/productImg-1.svg",
+      ],
+    },
+    {
+      id: "product-004",
+      type: "single-machines",
+      title: "Product title 04",
+      description: "product description",
+      infoText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ",
+      imgUrl: "/productImg-1.svg",
+      imgCollection: [
+        "/aboutBg2.svg",
+        "/productImg-1.svg",
+        "/aboutBg1.svg",
+        "/productImg-1.svg",
+      ],
+    },
+    {
+      id: "product-005",
+      type: "single-machines",
+      title: "Product title 05",
+      description: "product description",
+      infoText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ",
+      imgUrl: "/productImg-1.svg",
+      imgCollection: [
+        "/aboutBg2.svg",
+        "/productImg-1.svg",
+        "/aboutBg1.svg",
+        "/productImg-1.svg",
+      ],
+    },
+    {
+      id: "product-006",
+      type: "processing-lines",
+      title: "Product title 05",
+      description: "product description",
+      infoText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ",
+      imgUrl: "/aboutBg1.svg",
+      imgCollection: [
+        "/aboutBg2.svg",
+        "/productImg-1.svg",
+        "/aboutBg1.svg",
+        "/productImg-1.svg",
+      ],
+    },
+    {
+      id: "product-007",
+      type: "processing-lines",
+      title: "Product title 05",
+      description: "product description",
+      infoText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ",
+      imgUrl: "/aboutBg1.svg",
+      imgCollection: [
+        "/aboutBg2.svg",
+        "/productImg-1.svg",
+        "/aboutBg1.svg",
+        "/productImg-1.svg",
+      ],
+    },
+    {
+      id: "product-008",
+      type: "processing-lines",
+      title: "Product title 05",
+      description: "product description",
+      infoText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ",
+      imgUrl: "/aboutBg1.svg",
+      imgCollection: [
+        "/aboutBg2.svg",
+        "/productImg-1.svg",
+        "/aboutBg1.svg",
+        "/productImg-1.svg",
+      ],
+    },
+    {
+      id: "product-009",
+      type: "processing-lines",
+      title: "Product title 05",
+      description: "product description",
+      infoText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ",
+      imgUrl: "/aboutBg1.svg",
+      imgCollection: [
+        "/aboutBg2.svg",
+        "/productImg-1.svg",
+        "/aboutBg1.svg",
+        "/productImg-1.svg",
+      ],
+    },
+    {
+      id: "product-010",
+      type: "processing-lines",
+      title: "Product title 05",
+      description: "product description",
+      infoText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ",
+      imgUrl: "/aboutBg1.svg",
+      imgCollection: [
+        "/aboutBg2.svg",
+        "/productImg-1.svg",
+        "/aboutBg1.svg",
+        "/productImg-1.svg",
+      ],
+    },
+    {
+      id: "product-011",
+      type: "cutting-machines",
+      title: "Product title 05",
+      description: "product description",
+      infoText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ",
+      imgUrl: "/aboutBg2.svg",
+      imgCollection: [
+        "/aboutBg2.svg",
+        "/productImg-1.svg",
+        "/aboutBg1.svg",
+        "/productImg-1.svg",
+      ],
+    },
+    {
+      id: "product-012",
+      type: "cutting-machines",
+      title: "Product title 05",
+      description: "product description",
+      infoText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ",
+      imgUrl: "/aboutBg2.svg",
+      imgCollection: [
+        "/aboutBg2.svg",
+        "/productImg-1.svg",
+        "/aboutBg1.svg",
+        "/productImg-1.svg",
+      ],
+    },
+    {
+      id: "product-013",
+      type: "cutting-machines",
+      title: "Product title 05",
+      description: "product description",
+      infoText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ",
+      imgUrl: "/aboutBg2.svg",
+      imgCollection: [
+        "/aboutBg2.svg",
+        "/productImg-1.svg",
+        "/aboutBg1.svg",
+        "/productImg-1.svg",
+      ],
+    },
+    {
+      id: "product-014",
+      type: "cutting-machines",
+      title: "Product title 05",
+      description: "product description",
+      infoText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ",
+      imgUrl: "/aboutBg2.svg",
+      imgCollection: [
+        "/aboutBg2.svg",
+        "/productImg-1.svg",
+        "/aboutBg1.svg",
+        "/productImg-1.svg",
+      ],
+    },
+    {
+      id: "product-015",
+      type: "cutting-machines",
+      title: "Product title 05",
+      description: "product description",
+      infoText:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. \n\n Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ",
+      imgUrl: "/aboutBg2.svg",
+      imgCollection: [
+        "/aboutBg2.svg",
+        "/productImg-1.svg",
+        "/aboutBg1.svg",
+        "/productImg-1.svg",
+      ],
+    },
+  ],
 };
 
 const uiSlice = createSlice({
