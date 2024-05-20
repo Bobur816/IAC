@@ -6,9 +6,11 @@ const StyledCard = styled.div`
   /* background-color: darkblue; */
   background-color: #fff;
   /* width: 20%; */
-  min-width: 300px;
-  width: 20%;
+  /* width: 35rem; */
+  /* min-width: 300px; */
+  /* width: 25%; */
   /* height: 36rem; */
+  box-sizing: border-box;
   padding: 12px;
   display: flex;
   flex-direction: column;

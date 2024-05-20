@@ -79,7 +79,7 @@ const StyledButton = styled.button`
 `;
 
 const StyledNavLink = styled(NavLink)`
-  font-size: 1.6rem;
+  font-size: 16px;
   display: block;
   font-style: normal;
   font-weight: 400;

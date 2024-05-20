@@ -14,18 +14,33 @@ const StyledProduct = styled.div`
 `;
 
 const Main = styled.div`
+  margin-top: 3rem;
   display: flex;
-  /* height: 100%; */
+  height: 100%;
   /* background-color: yellow; */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 3rem;
+    & > div {
+      width: 100%;
+    }
+  }
 `;
 
 const ImgCarousel = styled.div`
+  /* background-color: red; */
   width: 50%;
+  height: 50rem;
 `;
 
 const MainText = styled.div`
   /* background-color: blue; */
   padding: 20px 44px;
+
+  @media (max-width: 768px) {
+    padding: 20px 10px;
+  }
+
   width: 50%;
 
   & p {

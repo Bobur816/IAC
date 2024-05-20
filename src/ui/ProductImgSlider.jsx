@@ -10,6 +10,7 @@ const StyledSlider = styled.div`
   position: relative;
   height: 100%;
   background-image: url(${(props) => props.$imgurl});
+  /* background-color: red; */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -57,10 +58,10 @@ const ToBigButton = styled.button`
 const BigScreen = styled.div`
   backdrop-filter: blur(5px);
   /* background-color: red; */
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   z-index: 8;
   /* overflow: hidden; */

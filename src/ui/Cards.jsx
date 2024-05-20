@@ -5,17 +5,24 @@ import { useLocation } from "react-router-dom";
 
 const StyledCards = styled.div`
   /* background-color: red; */
-  display: flex;
-  /* justify-content: space-between; */
-  align-items: flex-start;
-  flex-wrap: wrap;
-  justify-items: baseline;
-  /* justify-content: space-between; */
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: auto auto auto;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: auto auto;
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: auto;
+  }
   gap: 2.4rem;
   row-gap: 7rem;
   height: fit-content;
   animation-name: animateCards;
   animation-duration: 0.5s;
+  margin-top: 4rem;
 
   @keyframes animateCards {
     from {

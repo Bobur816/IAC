@@ -4,13 +4,9 @@ import Paragraph from "../ui/Paragraph";
 import { MdArrowOutward } from "react-icons/md";
 
 const StyledPartners = styled.div`
-  /* width: 100%; */
   /* background-color: red; */
   display: flex;
-  /* position: relative; */
-  /* overflow-y: scroll; */
-  /* overflow: visible; */
-  /* justify-content: space-around; */
+
   flex-direction: column;
   height: 100%;
 
@@ -31,14 +27,31 @@ const ForHead = styled.div`
 
 const CardContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  gap: 63px;
+  margin-top: 3rem;
+  justify-content: flex-start;
+  gap: 5rem;
+  @media (max-width: 1440px) {
+    justify-content: space-between;
+    /* gap: 63px; */
+  }
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+    flex-direction: column;
+    /* gap: 63px; */
+  }
   /* background-color: yellow; */
 `;
 
 const Card = styled.div`
-  background-color: #fff;
-  width: 48%;
+  /* background-color: #fff; */
+  /* background-color: red; */
+  width: 656px;
+  @media (max-width: 1440px) {
+    width: 50%;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -60,6 +73,7 @@ const Card = styled.div`
   & img {
     margin-bottom: 2.4rem;
     width: 100%;
+    /* height: 100%; */
   }
   & h3 {
     font-size: 2.4rem;

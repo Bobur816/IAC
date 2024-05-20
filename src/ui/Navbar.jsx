@@ -8,7 +8,7 @@ import Container from "./Container";
 const StyledNavbar = styled.header`
   height: 9rem;
   /* background-color: #ff00006c; */
-  transition: all 2s;
+  /* transition: all 0.3s; */
   /* box-shadow: 0 0 8px px white inset; */
 
   ${(props) =>
@@ -33,6 +33,10 @@ const Navdiv = styled.nav`
     justify-content: flex-end;
     align-items: center;
     gap: 5.5rem;
+
+    @media (max-width: 1024px) {
+      gap: 2rem;
+    }
   }
 `;
 

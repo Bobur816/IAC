@@ -13,16 +13,20 @@ const StyledAbout = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  & p {
+    margin-bottom: 3.2rem;
+  }
 `;
 function About() {
   return (
     <>
       <StyledAbout>
         <HeadText>Established in 1997</HeadText>
-        <Paragraph width="55%">
-          Ibrahim Asia Company (IAC Group) is a family-owned group of companies,
-          and Its headquarter is in Istanbul - Turkiye, with branches in Central
-          Asia.
+        <Paragraph width="70%">
+          Celebrating over two decades of excellence in the trading of
+          agricultural and food products to and from Central Asia, IAC Group has
+          been a pioneering force in the region's food industry landscape.
         </Paragraph>
         <Button to="/about/carousel">See more historical steps</Button>
       </StyledAbout>

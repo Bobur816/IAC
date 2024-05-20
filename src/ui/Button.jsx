@@ -3,6 +3,9 @@ import styled, { css } from "styled-components";
 
 const StyledBlack = styled.button`
   padding: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   background-color: var(--color-black-900);
   color: #fff;

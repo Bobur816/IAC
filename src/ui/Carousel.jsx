@@ -50,15 +50,19 @@ const StoryBox = styled.div`
   bottom: 7.5rem;
   left: 4.4rem;
   flex-direction: column;
-  width: 44%;
+  width: 50%;
+  @media (max-width: 768px) {
+    width: 75%;
+    background-color: rgba(0, 0, 0, 0.438);
+  }
   position: absolute;
-  padding: 24px;
-  gap: 24px;
+  padding: 2.4rem;
+  gap: 2.4rem;
   color: #fff;
 `;
 const StoryTitle = styled.h4`
   font-family: "New York";
-  font-size: 24px;
+  font-size: 2.4rem;
   font-style: normal;
   font-weight: 568;
   line-height: normal;
@@ -69,6 +73,9 @@ const StoryText = styled.p`
   font-family: Inter;
   white-space: break-spaces;
   font-size: 16px;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
   font-style: normal;
   font-weight: 400;
   line-height: normal;

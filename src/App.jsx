@@ -2,7 +2,6 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Dashboard from "./Pages/Dashboard";
 import About from "./Pages/About";
 import Projects from "./Pages/Projects";
-import Products from "./Pages/Products";
 import Partners from "./Pages/Partners";
 import AppLayout from "./ui/AppLayout";
 import GlobalStyles from "./styles/GlobalStyles";
@@ -12,12 +11,14 @@ import ProductsCuttingMachines from "./Pages/ProductsCuttingMachines";
 import CarouselPage from "./Pages/CarouselPage";
 import Project from "./Pages/Project";
 import Product from "./Pages/Product";
+import ScrollToTop from "./hooks/ScrollToTop";
 
 function App() {
   return (
     <>
       <GlobalStyles />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route element={<AppLayout />}>
             <Route index element={<Navigate replace to="dashboard" />} />

@@ -4,9 +4,17 @@ import Dropdown from "./Dropdown";
 
 const NavList = styled.ul`
   display: flex;
+  @media (max-width: 768px) {
+    /* display: none; */
+    position: absolute;
+    top: 50px;
+    left: 0;
+  }
   font-size: 16px;
   font-weight: 400;
-  gap: 24px;
+  gap: 2.4rem;
+  @media (max-width: 1130px) {
+  }
   color: ${(props) =>
     props.$homeurl === "/dashboard" || props.$homeurl === "/about/carousel"
       ? "#fff"

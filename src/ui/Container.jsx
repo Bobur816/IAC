@@ -4,13 +4,16 @@ const StyledContainer = styled.div`
   /* position: relative; */
   height: 100%;
   /* width: 100%; */
-  margin-left: 32px;
-  margin-right: 32px;
+  margin-left: 3.2rem;
+  margin-right: 3.2rem;
+
+  @media (max-width: 1440) {
+  }
   /* width: 1375px;
   margin-left: auto;
   margin-right: auto; */
 
-  background-color: #ffff0057;/
+  /* background-color: #ffff0057;/ */
 `;
 // eslint-disable-next-line react/prop-types
 function Container({ children }) {

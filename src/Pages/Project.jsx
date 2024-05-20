@@ -7,6 +7,13 @@ import { useParams } from "react-router-dom";
 const StyledProject = styled.div`
   display: flex;
   height: 100%;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 3rem;
+    & > div {
+      width: 100%;
+    }
+  }
 `;
 const LefttSide = styled.div`
   width: 50%;
@@ -14,6 +21,9 @@ const LefttSide = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 2.4rem;
+  @media (max-width: 768px) {
+    display: none;
+  }
   /* background-color: red; */
 `;
 

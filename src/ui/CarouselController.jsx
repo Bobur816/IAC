@@ -4,6 +4,10 @@ import styled from "styled-components";
 
 const Controller = styled.div`
   position: absolute;
+  /* background-color: red; */
+  @media (max-width: 768px) {
+    transform: scale(1.5) translateY(-20px);
+  }
   /* position: relative; */
   display: flex;
   flex-direction: column;

@@ -6,6 +6,13 @@ import { Outlet } from "react-router-dom";
 
 const StyledProjects = styled.div`
   display: flex;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 3rem;
+    & > div {
+      width: 100%;
+    }
+  }
   width: 100%;
   height: 100%;
 `;

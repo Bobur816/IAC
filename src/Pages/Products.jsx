@@ -5,6 +5,13 @@ const StyledProducts = styled.div`
   width: 100%;
   /* background-color: red; */
   display: flex;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 3rem;
+    & > div {
+      width: 100%;
+    }
+  }
   /* position: relative; */
   /* overflow-y: scroll; */
   /* overflow: visible; */
@@ -27,7 +34,7 @@ const ForHead = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-  margin-bottom: 6.8rem;
+  /* margin-bottom: 6.8rem; */
 `;
 
 // eslint-disable-next-line react/prop-types

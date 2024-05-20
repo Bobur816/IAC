@@ -3,6 +3,7 @@ import Header from "./Navbar";
 import Footer from "./Footer";
 import styled, { css } from "styled-components";
 import Container from "./Container";
+import Form from "./Form";
 
 const StyledAppLayout = styled.div`
   ${(props) =>
@@ -68,6 +69,7 @@ function AppLayout() {
         </Container>
       </Main>
       <Footer />
+      {/* <Form /> */}
     </StyledAppLayout>
   );
 }

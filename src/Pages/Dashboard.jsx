@@ -9,7 +9,19 @@ const StyledDashboard = styled.div`
 `;
 
 const SideBg = styled.div`
-  /* background-color: blue; */
+  & > div {
+    height: 100%;
+    width: 100%;
+    background-image: url("side_bg.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: color;
+    @media (max-width: 1130px) {
+      background-color: rgba(0, 0, 0, 0.459);
+    }
+    /* background-clip; */
+  }
   ${(props) =>
     props.$pageurl === "/dashboard"
       ? css`
@@ -26,8 +38,12 @@ const SideBg = styled.div`
   top: 0;
   right: 0;
   z-index: -1;
-  transition: all 0.5s;
+  /* transition: all 0.1s; */
   overflow: hidden;
+
+  @media (max-width: 1130px) {
+    width: 100%;
+  }
 
   & img {
     width: 100%;
@@ -41,7 +57,7 @@ const SideBg = styled.div`
 `;
 
 const DashLeft = styled.div`
-  width: 50%;
+  width: 40%;
   height: 100%;
   padding-right: 6rem;
   display: flex;
@@ -49,6 +65,14 @@ const DashLeft = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 2.4rem;
+
+  @media (max-width: 1130px) {
+    width: 100%;
+    color: #fff;
+    & p {
+      color: #fff;
+    }
+  }
 `;
 function Dashboard() {
   const pageUrl = useLocation().pathname;
@@ -63,7 +87,7 @@ function Dashboard() {
         <Button>Get in touch</Button>
       </DashLeft>
       <SideBg $pageurl={pageUrl}>
-        <img src="side_bg.svg" />
+        <div>{/* <img src="side_bg.svg" /> */}</div>
       </SideBg>
     </StyledDashboard>
   );
