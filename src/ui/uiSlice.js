@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   language: "eng",
+  isMobileNavOpen: false,
   aboutInfo: [
     {
       id: "about-001",
@@ -347,8 +348,15 @@ const uiSlice = createSlice({
     changeLanguage(state, action) {
       state.language = action.payload;
     },
+    toggleMobileNav(state) {
+      state.isMobileNavOpen = !state.isMobileNavOpen;
+    },
+    closeMobileNav(state) {
+      state.isMobileNavOpen = false;
+    },
   },
 });
 
-export const { changeLanguage } = uiSlice.actions;
+export const { changeLanguage, toggleMobileNav, closeMobileNav } =
+  uiSlice.actions;
 export default uiSlice.reducer;

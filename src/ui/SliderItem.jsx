@@ -27,7 +27,7 @@ const StyledLi = styled.li`
     padding: 1px;
     transform: translate(-20px, -50%);
     color: #e6e6e6;
-    z-index: 10;
+    z-index: 0;
     /* transition: all 0.1s; */
   }
 

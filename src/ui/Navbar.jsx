@@ -4,6 +4,7 @@ import Logo from "./Logo";
 import NavRight from "./NavRight";
 import { useLocation } from "react-router-dom";
 import Container from "./Container";
+import MobileNavToggle from "./MobileNavToggle";
 
 const StyledNavbar = styled.header`
   height: 9rem;
@@ -18,6 +19,7 @@ const StyledNavbar = styled.header`
           backdrop-filter: blur(5px);
         `
       : css``};
+
   width: 100%;
   z-index: 1;
 `;
@@ -27,6 +29,19 @@ const Navdiv = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  & > div:nth-child(1) {
+    /* min-width: 50%; */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5.5rem;
+
+    @media (max-width: 1024px) {
+      gap: 2rem;
+    }
+  }
+
   & > div:nth-child(2) {
     min-width: 50%;
     display: flex;
@@ -47,7 +62,10 @@ function Navbar() {
     <StyledNavbar $pageUrl={pageUrl}>
       <Container>
         <Navdiv>
-          <Logo />
+          <div>
+            <MobileNavToggle />
+            <Logo />
+          </div>
           <div>
             <MainNav />
             <NavRight />

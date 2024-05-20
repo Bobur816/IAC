@@ -6,6 +6,7 @@ import { Outlet } from "react-router-dom";
 
 const StyledProjects = styled.div`
   display: flex;
+  /* background-color: red; */
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 3rem;

@@ -33,12 +33,15 @@ const StyledDropdown = styled.div`
 const DropdownItems = styled.ul`
   color: #000;
   position: absolute;
+
   display: flex;
   flex-direction: column;
+  z-index: 1;
   gap: 1.6rem;
-  max-width: 200px;
+  /* max-width: 200px; */
   top: 120%;
   right: 0;
+
   /* right: 100%; */
   background-color: #fff;
   border-radius: 0.8rem;
@@ -121,6 +124,10 @@ function Dropdown({ type }) {
   const { language } = useSelector((state) => state.ui);
   const wrapperRef = useRef(null);
 
+  const pageUrl = homeurl.split("/");
+  const name = pageUrl.slice(-1)[0].split("-").join(" ");
+  console.log(name);
+
   useOutsideAlerter(wrapperRef, setIsOpen);
 
   if (type === "products")
@@ -183,6 +190,37 @@ function Dropdown({ type }) {
               >
                 Uzb
               </StyledButton>
+            </li>
+          </DropdownItems>
+        </StyledDropdown>
+      </StyledLangChanger>
+    );
+
+  if (type === "products-mobile")
+    return (
+      <StyledLangChanger
+        ref={wrapperRef}
+        $homeurl={homeurl}
+        onClick={() => setIsOpen((e) => (e === "true" ? "false" : "true"))}
+      >
+        <span>{name}</span>
+        <StyledDropdown $isopen={isOpen}>
+          <IoIosArrowDown />
+          <DropdownItems $isopen={isOpen} $homeurl={homeurl}>
+            <li>
+              <StyledNavLink to="/products/processing-lines">
+                Processing Lines
+              </StyledNavLink>
+            </li>
+            <li>
+              <StyledNavLink to="/products/single-machines">
+                Single Machines
+              </StyledNavLink>
+            </li>
+            <li>
+              <StyledNavLink to="/products/cutting-machines">
+                Cutting Machines
+              </StyledNavLink>
             </li>
           </DropdownItems>
         </StyledDropdown>

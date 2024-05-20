@@ -2,6 +2,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledLogo = styled(NavLink)`
+  /* height: 100%; */
   display: flex;
   align-items: center;
   transition: all 0.3s;
