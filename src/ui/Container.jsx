@@ -10,7 +10,7 @@ const StyledContainer = styled.div`
   margin-left: auto;
   margin-right: auto; */
 
-  /* background-color: #ffff0057;/ */
+  background-color: #ffff0057;/
 `;
 // eslint-disable-next-line react/prop-types
 function Container({ children }) {
