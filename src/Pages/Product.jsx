@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import HeadText from "../ui/HeadText";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Paragraph from "../ui/Paragraph";
 import Button from "../ui/Button";
 import ProductImgSlider from "../ui/ProductImgSlider";
+import { toggleFormOpen } from "../ui/uiSlice";
 
 const StyledProduct = styled.div`
   /* background-color: red; */
@@ -64,6 +65,10 @@ function Product() {
   const product = products.find((item) => item.id === id);
   console.log(product);
 
+  const dispatch = useDispatch();
+  function handleOpen() {
+    dispatch(toggleFormOpen());
+  }
   return (
     <StyledProduct>
       <HeadText>{product.title}</HeadText>
@@ -74,7 +79,7 @@ function Product() {
         </ImgCarousel>
         <MainText>
           <p>{product.infoText}</p>
-          <Button>Get a quote</Button>
+          <Button onClick={handleOpen}>Get a quote</Button>
         </MainText>
       </Main>
     </StyledProduct>

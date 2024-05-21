@@ -24,6 +24,9 @@ const Span = styled.span`
       : "var(--color-grey-600)"};
   font-size: 16px;
   font-weight: 400;
+  @media (max-width: 768px) {
+    color: #fff;
+  }
 `;
 
 const Socials = styled.ul`
@@ -32,8 +35,10 @@ const Socials = styled.ul`
   display: flex;
   align-items: center;
   gap: 24px;
+
   color: ${(props) =>
     props.$pageurl === "/about/carousel" ? "#fff" : "var(--color-grey-600)"};
+
   transition: all 0.1s;
 `;
 

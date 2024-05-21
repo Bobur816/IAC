@@ -2,9 +2,6 @@ import styled from "styled-components";
 import HeadText from "../ui/HeadText";
 import Paragraph from "../ui/Paragraph";
 import Button from "../ui/Button";
-import Carousel from "../ui/Carousel-v1";
-import { useState } from "react";
-import { useSelector } from "react-redux";
 
 const StyledAbout = styled.div`
   height: 100%;
@@ -15,7 +12,11 @@ const StyledAbout = styled.div`
   text-align: center;
 
   & p {
+    width: 70%;
     margin-bottom: 3.2rem;
+    @media (max-width: 1130px) {
+      width: 90%;
+    }
   }
 `;
 function About() {
@@ -23,7 +24,7 @@ function About() {
     <>
       <StyledAbout>
         <HeadText>Established in 1997</HeadText>
-        <Paragraph width="70%">
+        <Paragraph>
           Celebrating over two decades of excellence in the trading of
           agricultural and food products to and from Central Asia, IAC Group has
           been a pioneering force in the region's food industry landscape.

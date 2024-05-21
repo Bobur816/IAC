@@ -43,7 +43,7 @@ const CardContainer = styled.div`
 `;
 
 const Card = styled.div`
-  /* background-color: #fff; */
+  background-color: #fff;
   /* background-color: red; */
   width: 656px;
   @media (max-width: 1440px) {

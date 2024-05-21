@@ -12,7 +12,7 @@ const SideBg = styled.div`
   & > div {
     height: 100%;
     width: 100%;
-    background-image: url("side_bg.svg");
+    background-image: url("/side_bg.svg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

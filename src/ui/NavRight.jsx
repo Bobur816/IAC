@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Button from "./Button";
 import Dropdown from "./Dropdown";
+import { useDispatch } from "react-redux";
+import { toggleFormOpen } from "./uiSlice";
 
 const StyledNavRight = styled.div`
   display: flex;
@@ -9,11 +11,17 @@ const StyledNavRight = styled.div`
 `;
 
 function NavRight() {
+  const dispatch = useDispatch();
+  function handleOpen() {
+    dispatch(toggleFormOpen());
+  }
   return (
     <StyledNavRight>
       <Dropdown type="language" />
 
-      <Button type="black">Contact us</Button>
+      <Button type="black" onClick={handleOpen}>
+        Contact us
+      </Button>
     </StyledNavRight>
   );
 }
