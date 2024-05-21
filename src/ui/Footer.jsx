@@ -24,9 +24,6 @@ const Span = styled.span`
       : "var(--color-grey-600)"};
   font-size: 16px;
   font-weight: 400;
-  @media (max-width: 768px) {
-    color: #fff;
-  }
 `;
 
 const Socials = styled.ul`
