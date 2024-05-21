@@ -7,13 +7,16 @@ const StyledContainer = styled.div`
   margin-left: 3.2rem;
   margin-right: 3.2rem;
 
-  @media (max-width: 1440) {
+  @media (max-width: 768px) {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    /* background-color: red; */
   }
   /* width: 1375px;
   margin-left: auto;
   margin-right: auto; */
 
-  /* background-color: #ffff0057;/ */
+  /* background-color: #ffff0057; */
 `;
 // eslint-disable-next-line react/prop-types
 function Container({ children }) {
