@@ -3,6 +3,8 @@ import styled, { css } from "styled-components";
 import HeadText from "../ui/HeadText";
 import Paragraph from "../ui/Paragraph";
 import Button from "../ui/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFormOpen } from "../ui/uiSlice";
 
 const StyledDashboard = styled.div`
   height: 100%;
@@ -12,13 +14,13 @@ const SideBg = styled.div`
   & > div {
     height: 100%;
     width: 100%;
-    background-image: url("/side_bg.svg");
+    background-image: url(${(props) => props.$dashright});
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: color;
     @media (max-width: 1130px) {
-      background-color: rgba(0, 0, 0, 0.459);
+      filter: brightness(0.5);
     }
     /* background-clip; */
   }
@@ -76,6 +78,8 @@ const DashLeft = styled.div`
 `;
 function Dashboard() {
   const pageUrl = useLocation().pathname;
+  const dispatch = useDispatch();
+  const dashRight = useSelector((state) => state.ui.dashboardRight);
   return (
     <StyledDashboard>
       <DashLeft>
@@ -84,10 +88,12 @@ function Dashboard() {
           Engineering for Agriculture & Food Industry. Consulting and Managing
           Turn Key Projects.
         </Paragraph>
-        <Button>Get in touch</Button>
+        <Button onClick={() => dispatch(toggleFormOpen())}>Get in touch</Button>
       </DashLeft>
-      <SideBg $pageurl={pageUrl}>
-        <div>{/* <img src="side_bg.svg" /> */}</div>
+      <SideBg $pageurl={pageUrl} $dashright={dashRight}>
+        <div>
+          <video src={dashRight} autoPlay muted loop />
+        </div>
       </SideBg>
     </StyledDashboard>
   );

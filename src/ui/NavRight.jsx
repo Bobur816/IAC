@@ -8,6 +8,9 @@ const StyledNavRight = styled.div`
   display: flex;
   align-items: center;
   gap: 2.3rem;
+
+  & button {
+  }
 `;
 
 function NavRight() {

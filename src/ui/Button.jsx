@@ -10,8 +10,9 @@ const StyledBlack = styled.button`
   background-color: var(--color-black-900);
   color: #fff;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 400;
+  line-height: 100%;
 `;
 const GreenStyle = css`
   display: inline-flex;

@@ -126,7 +126,6 @@ function Dropdown({ type }) {
 
   const pageUrl = homeurl.split("/");
   const name = pageUrl.slice(-1)[0].split("-").join(" ");
-  console.log(name);
 
   useOutsideAlerter(wrapperRef, setIsOpen);
 
@@ -189,6 +188,15 @@ function Dropdown({ type }) {
                 }}
               >
                 Uzb
+              </StyledButton>
+            </li>
+            <li>
+              <StyledButton
+                onClick={() => {
+                  dispatch(changeLanguage("rus"));
+                }}
+              >
+                Rus
               </StyledButton>
             </li>
           </DropdownItems>

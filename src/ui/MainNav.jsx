@@ -1,8 +1,10 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Dropdown from "./Dropdown";
 import { useDispatch, useSelector } from "react-redux";
-import { closeMobileNav, toggleMobileNav } from "./uiSlice";
+import { closeChoseProduct, closeMobileNav, openChoseProduct } from "./uiSlice";
+import { useRef } from "react";
+import useOutsideAlerter from "../hooks/useOutsideChecker2";
 
 const NavList = styled.ul`
   display: flex;
@@ -10,7 +12,7 @@ const NavList = styled.ul`
     transition: transform 0.3s;
     position: absolute;
     background-color: gray;
-    width: 100%;
+    width: 50%;
     height: 100vh;
     padding: 70px 0 30px 30px;
     top: 0;
@@ -47,6 +49,14 @@ const StyledNavLink = styled(NavLink)`
     border-color: var(--color-green-700);
   }
 `;
+const StyledNavLink2 = styled(Link)`
+  border-bottom: 1px solid transparent;
+  padding: 4px 5px;
+  /* &.active {
+    color: var(--color-green-700);
+    border-color: var(--color-green-700);
+  } */
+`;
 
 const ForViewChange = styled.div`
   @media (max-width: 768px) {
@@ -63,10 +73,21 @@ function MainNav() {
   // console.log(homeUrl);
   function handleToggle() {
     dispatch(closeMobileNav());
+    dispatch(closeChoseProduct());
   }
+
+  function handleProducts() {
+    dispatch(closeMobileNav());
+    dispatch(openChoseProduct());
+  }
+
+  const ref = useRef();
+
+  useOutsideAlerter(ref, handleToggle);
+
   return (
     <nav>
-      <NavList $homeurl={homeurl} $isopen={isopen}>
+      <NavList ref={ref} $homeurl={homeurl} $isopen={isopen}>
         <li>
           <StyledNavLink onClick={handleToggle} to="/about">
             <span>About</span>
@@ -78,9 +99,9 @@ function MainNav() {
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink onClick={handleToggle} to="/products/processing-lines">
+          <StyledNavLink2 onClick={handleProducts} to="#">
             <span>Products</span>
-          </StyledNavLink>
+          </StyledNavLink2>
 
           <ForViewChange>
             <Dropdown type="products" />

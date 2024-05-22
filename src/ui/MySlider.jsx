@@ -19,7 +19,8 @@ const Test = styled.div`
   height: 100%;
   width: 100%;
   /* overflow: visible; */
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
+  overflow: hidden;
   /* background-color: blue; */
 
   &::-webkit-scrollbar {
@@ -28,18 +29,27 @@ const Test = styled.div`
 `;
 
 const SliderBox = styled.ul`
-  scroll-snap-type: y mandatory;
-  position: absolute;
   /* height: 100%; */
+  position: absolute;
+  height: 100%;
   width: 90%;
-  left: 10px;
-  border-left: 1px solid #e6e6e6;
+  /* left: 10px; */
+  /* border-left: 1px solid #e6e6e6; */
   /* left: 10px; */
   /* margin-left: 15px; */
-  /* overflow-y: scroll; */
-  overflow-x: visible;
   animation-name: animate1;
+  overflow-x: visible;
+  overflow-y: scroll;
   animation-duration: 1s;
+  scroll-snap-type: y mandatory;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & li {
+    scroll-snap-align: start;
+  }
 
   @keyframes animate1 {
     from {
@@ -63,6 +73,29 @@ function MySlider() {
     const activeSlide1 = ref.current.children[activeslide];
     if (activeSlide1)
       activeSlide1.scrollIntoView({ behavior: "smooth", block: "center" });
+    const parrent = ref.current;
+    const array = Array.from(parrent.children);
+
+    const changeActive = () => {
+      // console.log(parrent.scrollTop);
+      //________________________________________
+      const element = array.find(
+        (element) => element.offsetTop === parrent.scrollTop
+      );
+      const index = array.indexOf(element);
+      if (index >= 0) {
+        setActiveSlide(index + 1);
+      }
+    };
+    // const changeByCick = (e) => {
+    //   console.log(e);
+    // };
+
+    parrent.addEventListener("scroll", changeActive);
+
+    return () => {
+      parrent.removeEventListener("scroll", changeActive);
+    };
   }, [activeslide]);
 
   function handlePrev() {
@@ -83,6 +116,13 @@ function MySlider() {
     <StyledSlider>
       <Test>
         <SliderBox ref={ref}>
+          {/* <li>
+            ______________________________
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+            ipsum similique, dolorum molestiae quasi quo aspernatur tenetur
+            possimus, vitae fuga dicta sint consectetur quas minima aliquam
+            reiciendis ex. Delectus, nesciunt.
+          </li> */}
           {projects.map((item, i) => (
             <SliderItem
               project={item}

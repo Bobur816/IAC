@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Cards from "../ui/Cards";
 import Dropdown from "../ui/Dropdown";
-import { useLocation } from "react-router-dom";
 
 const StyledProducts = styled.div`
   width: 100%;
@@ -59,9 +58,8 @@ const Category = styled.div`
 
 // eslint-disable-next-line react/prop-types
 function Products({ children }) {
-  const pageUrl = useLocation().pathname.split("/");
-  const name = pageUrl.slice(-1)[0].split("-").join(" ");
-  console.log(name);
+  // const pageUrl = useLocation().pathname.split("/");
+  // const name = pageUrl.slice(-1)[0].split("-").join(" ");
   return (
     <StyledProducts>
       <div>

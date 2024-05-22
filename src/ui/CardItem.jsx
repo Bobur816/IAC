@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components";
 import Button from "./Button";
+import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
-const StyledCard = styled.div`
+const StyledCard = styled(Link)`
   /* background-color: darkblue; */
   background-color: #fff;
   /* width: 20%; */
@@ -49,14 +51,17 @@ const ImgBox = styled.div`
   }
 `;
 function CardItem({ card }) {
+  const cardRef = useRef();
+  console.log(cardRef.current);
+  useEffect(() => {});
   return (
-    <StyledCard>
+    <StyledCard to={`/products/${card.id}`} ref={cardRef}>
       <ImgBox>
         <img src={card.imgUrl} alt="" />
       </ImgBox>
       <div>
         <h2>Here will be the awesome product title</h2>
-        <Button to={`/products/${card.id}`}>More details</Button>
+        <Button>More details</Button>
       </div>
     </StyledCard>
   );

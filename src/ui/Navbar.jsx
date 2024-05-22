@@ -16,6 +16,7 @@ const StyledNavbar = styled.header`
     props.$pageUrl.includes("products") || props.$pageUrl.includes("partners")
       ? css`
           position: fixed;
+          -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
         `
       : css``};

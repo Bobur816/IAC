@@ -83,6 +83,9 @@ const Label = styled.label`
     color: #009035;
   }
 
+  & p {
+    width: 90%;
+  }
   & input[type="checkbox"],
   & input[type="radio"] {
     position: relative;
@@ -409,7 +412,7 @@ function Form() {
                 <label htmlFor="formSlect">Where did you hear about us?</label>
                 <div>
                   <select name="formSlect" id="#" required>
-                    <option value="customer"> I'm an existing customer</option>
+                    <option value="customer"> I`m an existing customer</option>
                     <option value="trade-show"> Trade Show</option>
                     <option value="web">Web Search</option>
                     <option value="social">Social Media</option>

@@ -5,6 +5,7 @@ import styled, { css } from "styled-components";
 import Container from "./Container";
 import Form from "./Form";
 import { useSelector } from "react-redux";
+import ChoseProductType from "./ChoseProductType";
 
 const StyledAppLayout = styled.div`
   ${(props) =>
@@ -62,7 +63,7 @@ const Main = styled.main`
 function AppLayout() {
   const pageUrl = useLocation().pathname;
   const { isOpenForm } = useSelector((state) => state.ui);
-  console.log(isOpenForm);
+
   return (
     <StyledAppLayout $pageurl={pageUrl}>
       <Header />
@@ -72,6 +73,7 @@ function AppLayout() {
         </Container>
       </Main>
       <Footer />
+      <ChoseProductType />
       {isOpenForm && <Form />}
     </StyledAppLayout>
   );

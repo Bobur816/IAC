@@ -2,7 +2,6 @@ import styled from "styled-components";
 import HeadText from "../ui/HeadText";
 import Paragraph from "../ui/Paragraph";
 import ProjectRight from "../ui/ProjectRight";
-import { Outlet } from "react-router-dom";
 
 const StyledProjects = styled.div`
   display: flex;
@@ -32,7 +31,6 @@ function Projects() {
         <Paragraph>Here you can find our reference list and projects</Paragraph>
       </LefttSide>
       <ProjectRight />
-      <Outlet />
     </StyledProjects>
   );
 }

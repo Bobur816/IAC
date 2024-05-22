@@ -63,7 +63,6 @@ function Product() {
   const { products } = useSelector((state) => state.ui);
   const { id } = useParams();
   const product = products.find((item) => item.id === id);
-  console.log(product);
 
   const dispatch = useDispatch();
   function handleOpen() {

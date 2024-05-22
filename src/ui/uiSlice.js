@@ -3,7 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   language: "eng",
   isMobileNavOpen: false,
+  isChoseProductOpen: false,
   isOpenForm: false,
+  dashboardRight: "/side_bg.svg",
+  // dashboardRight: "/video.mp4",
   aboutInfo: [
     {
       id: "about-001",
@@ -106,7 +109,7 @@ const initialState = {
     },
     {
       id: "project-007",
-      projectName: "Uzmarkazsanoatexport",
+      projectName: "Flora garden",
       projectWork: "Various processing lines for pre-dehydration processing",
       projectInfo:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -340,6 +343,25 @@ const initialState = {
       ],
     },
   ],
+
+  partners: [
+    {
+      id: "partner-001",
+      name: "Bigtem Makine A.S.",
+      description:
+        "Bigtem is a specialized process engineering, design and manufacturing, company for food processing equipment located in Istanbul, Turkey since 1973. IAC Group is official exclusive representative of Bigtem in Uzbekistan, Central Asia.",
+      imgUrl: "/partnerImg-1.svg",
+      siteLink: "www.bigtem.com",
+    },
+    {
+      id: "partner-002",
+      name: "Urschel Laboratories Inc.",
+      description:
+        "Since 1910, Urschel has been designing and manufacturing precision industrial cutting machinery. From the invention of the Gooseberry Snipper to the development of the Comitrol®, TranSlicer®, and DiversaCut® series of machines, the focus has always been on finding innovative and efficient ways to improve customer productivity. IAC Group is official exclusive representative of Bigtem in Uzbekistan, Central Asia.",
+      imgUrl: "/partnerImg-2.svg",
+      siteLink: "www.urschel.com",
+    },
+  ],
 };
 
 const uiSlice = createSlice({
@@ -351,6 +373,12 @@ const uiSlice = createSlice({
     },
     toggleMobileNav(state) {
       state.isMobileNavOpen = !state.isMobileNavOpen;
+    },
+    openChoseProduct(state) {
+      state.isChoseProductOpen = true;
+    },
+    closeChoseProduct(state) {
+      state.isChoseProductOpen = false;
     },
     closeMobileNav(state) {
       state.isMobileNavOpen = false;
@@ -366,5 +394,7 @@ export const {
   toggleMobileNav,
   closeMobileNav,
   toggleFormOpen,
+  openChoseProduct,
+  closeChoseProduct,
 } = uiSlice.actions;
 export default uiSlice.reducer;

@@ -18,7 +18,10 @@ const StyledCarousel = styled.div`
 `;
 
 const CarouselSlider = styled.ul`
-  background-image: url(${(props) => props.$imgurl});
+  /* background-image: url(${(props) => props.$imgurl}); */
+  background-image: url("/CarouselBack.png");
+  filter: brightness(0.8);
+  /* background-color: red; */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -27,11 +30,19 @@ const CarouselSlider = styled.ul`
   top: 0;
   left: 0;
   height: 100dvh;
+  /* height: 300px; */
   width: 100%;
-  overflow: hidden;
-  animation-name: showCarrousel;
+  /* overflow: hidden; */
+  overflow-y: scroll;
+  scroll-timeline: 3s;
+  /* animation-name: showCarrousel; */
   animation-duration: 0.5s;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 
+  &::-webkit-scrollbar {
+    display: none;
+  }
   /* @keyframes showCarrousel {
     from {
       transform: scale(1.1);
@@ -44,6 +55,30 @@ const CarouselSlider = styled.ul`
   } */
 `;
 
+const Item = styled.li`
+  /* background-image: url(${(props) => props.$imgurl}); */
+  /* background-color: red; */
+  scroll-snap-align: start;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 100%;
+  z-index: 0;
+  animation-name: carouselbg;
+  animation-duration: 1s;
+
+  @keyframes carouselbg {
+    from {
+      /* transform: scale(0.8); */
+      opacity: 0;
+    }
+    to {
+      /* transform: scale(1); */
+      opacity: 1;
+    }
+  }
+`;
 const StoryBox = styled.div`
   background-color: black;
   display: flex;
@@ -81,38 +116,16 @@ const StoryText = styled.p`
   line-height: normal;
 `;
 
-const Item = styled.li`
-  background-image: url(${(props) => props.$imgurl});
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  height: 100%;
-  z-index: 0;
-  animation-name: carouselbg;
-  animation-duration: 1s;
-
-  @keyframes carouselbg {
-    from {
-      /* transform: scale(0.8); */
-      opacity: 0;
-    }
-    to {
-      /* transform: scale(1); */
-      opacity: 1;
-    }
-  }
-`;
-
 // eslint-disable-next-line react/prop-types
 function Carousel() {
   const abouts = useSelector((state) => state.ui.aboutInfo);
   //   Array.from({ length: 10 }).forEach((_, i) => abouts.push(i));
   const [activeSlide, setActiveSlide] = useState(0);
+
   //   console.log(activeSlide);
   const ref = useRef();
-  //   console.log(ref.current);
-
+  const tanla = useRef();
+  // ref.current.scrollTop = position;
   function handlePrev() {
     setActiveSlide((e) => (e === 0 ? e : e - 1));
   }
@@ -123,7 +136,6 @@ function Carousel() {
   }
 
   // const { title, subtitle, imgUrl } = abouts[activeSlide];
-
   const selectSlide = (i) => {
     setActiveSlide(i);
   };
@@ -132,14 +144,33 @@ function Carousel() {
     const activeSlide1 = ref.current.children[activeSlide];
     if (activeSlide1)
       activeSlide1.scrollIntoView({ behavior: "smooth", block: "start" });
+    const parrent = ref.current;
+    const array = Array.from(parrent.children);
+
+    const changeActive = () => {
+      const element = array.find(
+        (element) => element.offsetTop === parrent.scrollTop
+      );
+      const index = array.indexOf(element);
+
+      if (index >= 0) {
+        setActiveSlide(index);
+      }
+    };
+
+    parrent.addEventListener("scroll", changeActive);
+
+    return () => parrent.removeEventListener("scroll", changeActive);
   }, [activeSlide]);
+
+  //______________________________________________________________________________________________
 
   return (
     <StyledCarousel>
       <CarouselSlider ref={ref}>
         {abouts.map((aboutItem) => (
           <Item $imgurl={aboutItem.imgUrl} key={aboutItem.id}>
-            <StoryBox>
+            <StoryBox ref={tanla}>
               <StoryTitle>{aboutItem.title}</StoryTitle>
               <StoryText>{aboutItem.subtitle}</StoryText>
             </StoryBox>

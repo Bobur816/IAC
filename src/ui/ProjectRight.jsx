@@ -11,7 +11,11 @@ const StyledProjectRight = styled.div`
 `;
 
 function ProjectRight() {
-  return <StyledProjectRight>{<MySlider />}</StyledProjectRight>;
+  return (
+    <StyledProjectRight>
+      <MySlider />
+    </StyledProjectRight>
+  );
 }
 
 export default ProjectRight;

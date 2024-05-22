@@ -39,7 +39,6 @@ function MobileNavToggle() {
 
   const { isMobileNavOpen } = useSelector((state) => state.ui);
   const dispatch = useDispatch();
-  console.log(isMobileNavOpen);
 
   function handleToggle() {
     dispatch(toggleMobileNav());

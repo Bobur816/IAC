@@ -4,7 +4,6 @@ import { GoScreenFull } from "react-icons/go";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const StyledSlider = styled.div`
   position: relative;
@@ -78,12 +77,9 @@ const BigScreen = styled.div`
 `;
 
 function ProductImgSlider({ images }) {
-  console.log(images);
-
   const [activeImg, setActiveImg] = useState(0);
   const [isBigShow, setIsBigShow] = useState(false);
   const imgurl = images[activeImg];
-  console.log(activeImg);
   //   const navigate = useNavigate();
 
   function handleShow() {
