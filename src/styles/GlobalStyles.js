@@ -92,7 +92,7 @@ body {
   font-family: "Inter", sans-serif;
   overflow-x: hidden;
   transition: color 0.3s, background-color 0.3s;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   line-height: 1.5;
   font-size: 1.6rem;
 }
