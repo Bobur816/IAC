@@ -23,6 +23,10 @@ const CarouselSlider = styled.ul`
   filter: brightness(0.8);
   /* background-color: red; */
   background-position: center;
+  @media (max-width: 768px) {
+    background-position: 58% 50%;
+  }
+
   background-repeat: no-repeat;
   background-size: cover;
   /* transition: all 0.5s; */
