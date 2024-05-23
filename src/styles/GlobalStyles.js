@@ -78,14 +78,16 @@ const GlobalStyles = createGlobalStyle`
 }
 
 html {
+  height: -webkit-fill-available;
   font-size: 62.5%;
-
+  
   @media (max-width: 1024px) {
     font-size: 50%;
   }
 }
 
 body {
+  height: -webkit-fill-available;
   position: relative;
   font-family: "Inter", sans-serif;
   overflow-x: hidden;
