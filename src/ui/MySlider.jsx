@@ -75,6 +75,9 @@ function MySlider() {
     const activeSlide1 = ref.current.children[activeslide];
     if (activeSlide1)
       activeSlide1.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [activeslide]);
+
+  useEffect(() => {
     const parrent = ref.current;
     const wrapper2 = wrapper.current;
 
@@ -86,6 +89,7 @@ function MySlider() {
 
     const getVerticalCenter = (e) => {
       const childTop = e.getBoundingClientRect().top;
+      // console.log(parrentTop);
 
       return childTop;
     };
@@ -121,7 +125,7 @@ function MySlider() {
       // }
 
       if (index >= 0) {
-        setActiveSlide(index);
+        setActiveSlide(index + 1);
       }
     };
     // const changeByCick = (e) => {
@@ -129,13 +133,15 @@ function MySlider() {
     // };
 
     parrent.addEventListener("wheel", changeActive);
-    parrent.addEventListener("swipe", changeActive);
+    // parrent.addEventListener("mousedown", changeActive);
+    parrent.addEventListener("touchmove", changeActive);
 
     return () => {
-      parrent.removeEventListener("swipe", changeActive);
+      parrent.removeEventListener("touchmove", changeActive);
+      // parrent.removeEventListener("mousedown", changeActive);
       parrent.removeEventListener("wheel", changeActive);
     };
-  }, [activeslide]);
+  }, []);
 
   function handlePrev() {
     setActiveSlide((e) => (e === 0 ? (e = projects.length - 1) : e - 1));
@@ -155,13 +161,6 @@ function MySlider() {
     <StyledSlider>
       <Test ref={wrapper}>
         <SliderBox ref={ref}>
-          {/* <li>
-            ______________________________
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-            ipsum similique, dolorum molestiae quasi quo aspernatur tenetur
-            possimus, vitae fuga dicta sint consectetur quas minima aliquam
-            reiciendis ex. Delectus, nesciunt.
-          </li> */}
           {projects.map((item, i) => (
             <SliderItem
               project={item}
