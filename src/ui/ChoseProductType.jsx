@@ -71,17 +71,17 @@ function ChoseProductType() {
     <StyledChose $isopen={isOpen.toString()}>
       <StyledUl ref={ref1}>
         <li>
-          <StyledNavLink onClick={handleClose} to="/products/processing-lines">
+          <StyledNavLink to="/products/processing-lines" onClick={handleClose}>
             Processing Lines
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink onClick={handleClose} to="/products/single-machines">
+          <StyledNavLink to="/products/single-machines" onClick={handleClose}>
             Single Machines
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink onClick={handleClose} to="/products/cutting-machines">
+          <StyledNavLink to="/products/cutting-machines" onClick={handleClose}>
             Cutting Machines
           </StyledNavLink>
         </li>
