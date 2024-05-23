@@ -511,6 +511,38 @@ const initialState = {
       imgUrl: "/partnerImg-2.svg",
       siteLink: "www.urschel.com",
     },
+    {
+      id: "partner-003",
+      name: "Bigtem Makine A.S.",
+      description:
+        "Bigtem is a specialized process engineering, design and manufacturing, company for food processing equipment located in Istanbul, Turkey since 1973. IAC Group is official exclusive representative of Bigtem in Uzbekistan, Central Asia.",
+      imgUrl: "/partnerImg-1.svg",
+      siteLink: "www.bigtem.com",
+    },
+    {
+      id: "partner-004",
+      name: "Urschel Laboratories Inc.",
+      description:
+        "Since 1910, Urschel has been designing and manufacturing precision industrial cutting machinery. From the invention of the Gooseberry Snipper to the development of the Comitrol®, TranSlicer®, and DiversaCut® series of machines, the focus has always been on finding innovative and efficient ways to improve customer productivity. IAC Group is official exclusive representative of Bigtem in Uzbekistan, Central Asia.",
+      imgUrl: "/partnerImg-2.svg",
+      siteLink: "www.urschel.com",
+    },
+    {
+      id: "partner-005",
+      name: "Bigtem Makine A.S.",
+      description:
+        "Bigtem is a specialized process engineering, design and manufacturing, company for food processing equipment located in Istanbul, Turkey since 1973. IAC Group is official exclusive representative of Bigtem in Uzbekistan, Central Asia.",
+      imgUrl: "/partnerImg-1.svg",
+      siteLink: "www.bigtem.com",
+    },
+    {
+      id: "partner-006",
+      name: "Urschel Laboratories Inc.",
+      description:
+        "Since 1910, Urschel has been designing and manufacturing precision industrial cutting machinery. From the invention of the Gooseberry Snipper to the development of the Comitrol®, TranSlicer®, and DiversaCut® series of machines, the focus has always been on finding innovative and efficient ways to improve customer productivity. IAC Group is official exclusive representative of Bigtem in Uzbekistan, Central Asia.",
+      imgUrl: "/partnerImg-2.svg",
+      siteLink: "www.urschel.com",
+    },
   ],
 };
 

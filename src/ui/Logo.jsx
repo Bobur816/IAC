@@ -14,7 +14,9 @@ function Logo() {
   return (
     <StyledLogo to="/dashboard">
       <Img
-        src={pageUrl === "/about/carousel" ? "/Logo-white.svg" : "/Logo.svg"}
+        src={
+          pageUrl === "/about/carousel" ? "/Logo-white.svg" : "/Logo-green.svg"
+        }
       />
     </StyledLogo>
   );

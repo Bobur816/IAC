@@ -221,12 +221,12 @@ img {
   visibility: visible;
   opacity: 1;
   animation-name: showCarouse;
-  animation-duration: 1s;
+  animation-duration: 0.3s;
 }
 @keyframes showCarouse {
     from {
       /* opacity: 0; */
-      transform: scale(0.8) rotateX(45deg) translateX(-50px);
+      transform: scale(0.8) ;
     }
     to {
       /* opacity: 100; */

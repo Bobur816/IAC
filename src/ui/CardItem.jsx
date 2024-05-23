@@ -2,7 +2,7 @@
 import styled, { css } from "styled-components";
 import Button from "./Button";
 import { Link } from "react-router-dom";
-import { createRef, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const StyledCard = styled(Link)`
   /* background-color: darkblue; */

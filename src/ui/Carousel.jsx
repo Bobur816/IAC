@@ -37,7 +37,7 @@ const CarouselSlider = styled.ul`
   overflow-y: scroll;
   scroll-timeline: 3s;
   /* animation-name: showCarrousel; */
-  animation-duration: 0.5s;
+  /* animation-duration: 0.5s; */
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
 
@@ -70,19 +70,6 @@ const Item = styled.li`
   height: 100vh;
   width: 100%;
   z-index: 1;
-  animation-name: carouselbg;
-  animation-duration: 1s;
-
-  @keyframes carouselbg {
-    from {
-      /* transform: scale(0.8); */
-      opacity: 0;
-    }
-    to {
-      /* transform: scale(1); */
-      opacity: 1;
-    }
-  }
 `;
 const StoryBox = styled.div`
   background-color: black;

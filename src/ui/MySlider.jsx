@@ -10,8 +10,6 @@ const StyledSlider = styled.div`
   height: 100%;
   width: 100%;
 
-  /* background-color: red; */
-  /* overflow-y: scroll; */
   overflow-x: hidden;
 `;
 
@@ -19,10 +17,7 @@ const Test = styled.div`
   position: relative;
   height: 100%;
   width: 100%;
-  /* overflow: visible; */
-  /* overflow-y: scroll; */
   overflow: hidden;
-  /* background-color: blue; */
 
   &::-webkit-scrollbar {
     display: none;
@@ -30,18 +25,15 @@ const Test = styled.div`
 `;
 
 const SliderBox = styled.ul`
-  /* height: 100%; */
   position: absolute;
   height: 100%;
   width: 90%;
-  /* left: 10px; */
-  /* border-left: 1px solid #e6e6e6; */
-  /* left: 10px; */
-  /* margin-left: 15px; */
+
   animation-name: animate1;
   overflow-x: hidden;
   overflow-y: scroll;
-  /* animation-duration: ; */
+  /* animation-name: animate1; */
+  /* animation-duration: 1s; */
   scroll-snap-type: y mandatory;
 
   &::-webkit-scrollbar {
@@ -79,66 +71,36 @@ function MySlider() {
 
   useEffect(() => {
     const parrent = ref.current;
-    const wrapper2 = wrapper.current;
+    // const wrapper2 = wrapper.current;
 
     const array = Array.from(parrent.children);
     const parrentTop = parrent.getBoundingClientRect().top;
 
-    console.log(parrentTop);
-    const childrenCord = array.map((el) => Math.abs(el.offsetTop - parrentTop));
+    // const childrenCord = array.map((el) => Math.abs(el.offsetTop - parrentTop));
 
     const getVerticalCenter = (e) => {
       const childTop = e.getBoundingClientRect().top;
-      // console.log(parrentTop);
 
       return childTop;
     };
-    console.log(childrenCord);
     const changeActive = () => {
       const childCords = array.map((el) => getVerticalCenter(el));
-      // console.log(childCords, parrentTop);
-      const orasi = childCords.map((el) => Math.abs(parrentTop - el));
-      // getVerticalCenter(parrent.children[0]);
+      const beetwen = childCords.map((el) => Math.abs(parrentTop - el));
 
-      //   const childrenCord = array.map((el) =>
-      //   Math.abs(el.getBoundingClientRect().height)
-      // );
-      // console.log(parrent.scrollTop);
-      // console.log(parrent.children[activeslide].scrollTop, parrent.scrollTop);
-      // console.log(parrent.children[0].getBoundingClientRect());
-      // array.forEach((el) => console.log(el.offsetTop));
-      // console.log(parrentCenter, parrent.scrollTop);
+      const minElement = Math.min.apply(Math, beetwen);
 
-      const minElement = Math.min.apply(Math, orasi);
-      //________________________________________
-      // const element = array.find(
-      //   (element) => element.offsetTop === parrent.scrollTop
-      //   // element.offsetTop < parrent.scrollTop + parrentCenter &&
-      //   // element.offsetTop > parrent.scrollTop
-      // );
-      const index = orasi.indexOf(minElement);
-      console.log(index + 1);
-      // const index = orasi.indexOf(minElement);
-      // console.log(index + 1);
-      // if (index >= 0) {
-      //   setActiveSlide(index);
-      // }
+      const index = beetwen.indexOf(minElement);
 
       if (index >= 0) {
         setActiveSlide(index + 1);
       }
     };
-    // const changeByCick = (e) => {
-    //   console.log(e);
-    // };
 
     parrent.addEventListener("wheel", changeActive);
-    // parrent.addEventListener("mousedown", changeActive);
     parrent.addEventListener("touchmove", changeActive);
 
     return () => {
       parrent.removeEventListener("touchmove", changeActive);
-      // parrent.removeEventListener("mousedown", changeActive);
       parrent.removeEventListener("wheel", changeActive);
     };
   }, []);
@@ -153,7 +115,6 @@ function MySlider() {
 
   const selectSlide = (i) => {
     setActiveSlide(i);
-    // console.log(projects[i]);
     navigate(`/projects/${projects[i].id}`);
   };
 

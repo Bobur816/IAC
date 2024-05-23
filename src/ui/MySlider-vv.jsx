@@ -41,7 +41,7 @@ const SliderBox = styled.ul`
   animation-name: animate1;
   overflow-x: hidden;
   overflow-y: scroll;
-  animation-duration: 1s;
+  /* animation-duration: 1s; */
   /* scroll-snap-type: y mandatory; */
 
   &::-webkit-scrollbar {

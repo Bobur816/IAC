@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
+import { useEffect, useRef, useState } from "react";
 import { MdArrowOutward } from "react-icons/md";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Card = styled(Link)`
   background-color: #fff;
@@ -18,6 +19,7 @@ const Card = styled(Link)`
   justify-content: space-between;
   padding: 1.2rem;
   animation-name: animatecard;
+  transition: all 1s;
   animation-duration: 1s;
 
   @keyframes animatecard {
@@ -30,6 +32,18 @@ const Card = styled(Link)`
       opacity: 1;
     }
   }
+
+  ${(props) =>
+    props.$elementisvisible
+      ? css`
+          /* background-color: red; */
+          transform: scale(1);
+          opacity: 1;
+        `
+      : css`
+          transform: scale(0.5);
+          opacity: 0;
+        `}
 
   & img {
     margin-bottom: 2.4rem;
@@ -71,9 +85,24 @@ const Card = styled(Link)`
   }
 `;
 function PartnerItem({ partner }) {
+  const cardRef2 = useRef();
+  const [elementIsvisible, setElementIsvisible] = useState();
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      setElementIsvisible(entry.isIntersecting);
+      if (entry.isIntersecting) observer.unobserve(entry.target);
+    }, {});
+
+    observer.observe(cardRef2.current);
+  }, []);
   const { name, description, imgUrl, siteLink } = partner;
   return (
-    <Card to={`https://${siteLink}`}>
+    <Card
+      to={`https://${siteLink}`}
+      ref={cardRef2}
+      $elementisvisible={elementIsvisible}
+    >
       <div>
         <img src={imgUrl} alt="partnerImg" />
         <h3>{name}</h3>
