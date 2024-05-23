@@ -43,15 +43,17 @@ const Category = styled.div`
   margin-top: 15px;
   display: none;
   top: 100px;
-  width: 130px;
+  /* width: 130px; */
   margin-left: auto;
   margin-right: 10px;
   /* right: 100px; */
   z-index: 1;
-  background-color: #fff;
+  /* background-color: #fff; */
+  /* background-color: red; */
   justify-content: flex-end;
+  flex-wrap: nowrap;
   align-items: center;
-  padding: 12px;
+  padding: 12px 4px;
   /* font-size: 10px; */
   @media (max-width: 768px) {
     display: flex;

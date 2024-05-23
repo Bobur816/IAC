@@ -111,6 +111,10 @@ const StyledLangChanger = styled.div`
   }
   & span {
     text-transform: capitalize;
+    /* display: inline-block; */
+    /* width: 100%; */
+    /* background-color: red; */
+    /* font-size: 14px; */
   }
   & a.active {
     border: none;
