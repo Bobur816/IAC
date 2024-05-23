@@ -40,6 +40,7 @@ const ForHead = styled.div`
 
 const Category = styled.div`
   /* position: fixed; */
+  margin-top: 15px;
   display: none;
   top: 100px;
   width: 130px;
@@ -47,10 +48,11 @@ const Category = styled.div`
   margin-right: 10px;
   /* right: 100px; */
   z-index: 1;
-  /* background-color: red; */
+  background-color: #fff;
   justify-content: flex-end;
   align-items: center;
-  padding: 10px;
+  padding: 12px;
+  /* font-size: 10px; */
   @media (max-width: 768px) {
     display: flex;
   }

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import styled, { css } from "styled-components";
 import CarouselController from "./CarouselController";
@@ -8,7 +8,7 @@ const StyledCarousel = styled.div`
   /* background-color: red; */
   display: block;
   /* position: relative; */
-  overflow: hidden;
+  /* overflow: hidden; */
   top: 0;
   left: 0;
   height: 100%;
@@ -24,7 +24,7 @@ const CarouselSlider = styled.ul`
   /* background-color: red; */
   background-position: center;
   @media (max-width: 768px) {
-    /* background-position: 58% 50%; */
+    background-position: 58% 50%;
   }
 
   background-repeat: no-repeat;
@@ -37,36 +37,46 @@ const CarouselSlider = styled.ul`
   height: 100%;
   /* height: 300px; */
   width: 100%;
-  overflow: hidden;
-
+  /* overflow: hidden; */
+  overflow-y: scroll;
+  scroll-timeline: 3s;
+  /* animation-name: showCarrousel; */
+  /* animation-duration: 0.5s; */
   scroll-behavior: smooth;
-  /* scroll-snap-type: y mandatory; */
+  scroll-snap-type: y mandatory;
 
   &::-webkit-scrollbar {
     display: none;
   }
+  /* @keyframes showCarrousel {
+    from {
+      transform: scale(1.1);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  } */
 `;
 
 const Item = styled.li`
   /* background-image: url(${(props) => props.$imgurl}); */
-  background-color: #ffff0081;
-  /* margin-top: 200px; */
+  /* background-color: red; */
+  /* margin-top: 20px; */
   /* border: 1px solid black; */
   scroll-snap-align: start;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  position: absolute;
-  /* position: relative; */
-  /* height: 100vh; */ //////
-  bottom: 0;
-  left: 0;
-  /* height: 100px; */
+  /* position: absolute; */
+  position: relative;
+  height: 100vh;
   width: 100%;
   z-index: 1;
 `;
 const StoryBox = styled.div`
-  background-color: rgba(0, 0, 0, 0.438);
+  background-color: black;
   display: flex;
   bottom: 7.5rem;
   left: 4.4rem;
@@ -119,34 +129,20 @@ function Carousel() {
   const abouts = useSelector((state) => state.ui.aboutInfo);
   //   Array.from({ length: 10 }).forEach((_, i) => abouts.push(i));
   const [activeSlide, setActiveSlide] = useState(0);
-  // const [firstPosition, setFirstPosition] = useState(0);
-  // const [lastPosition, setLastPosition] = useState(0);
-  let firstPosition = useRef();
-  let lastPosition = useRef();
-  let counter = 0;
 
-  // console.log(firstPosition);
   //   console.log(activeSlide);
   const ref = useRef();
   const tanla = useRef();
 
   // ref.current.scrollTop = position;
-  // function handlePrev() {
-  //   setActiveSlide((e) => (e === 0 ? e : e - 1));
-  // }
-
-  // function handleNext() {
-  //   setActiveSlide((e) => (e === abouts.length - 1 ? e : e + 1));
-  //   // console.log(activeSlide);
-  // }
-
-  const handlePrev = useCallback(() => {
+  function handlePrev() {
     setActiveSlide((e) => (e === 0 ? e : e - 1));
-  }, []);
+  }
 
-  const handleNext = useCallback(() => {
+  function handleNext() {
     setActiveSlide((e) => (e === abouts.length - 1 ? e : e + 1));
-  }, []);
+    // console.log(activeSlide);
+  }
 
   // const { title, subtitle, imgUrl } = abouts[activeSlide];
   const selectSlide = (i) => {
@@ -158,74 +154,29 @@ function Carousel() {
     if (activeSlide1)
       activeSlide1.scrollIntoView({ behavior: "smooth", block: "start" });
     const parrent = ref.current;
-    // const array = Array.from(parrent.children);
+    const array = Array.from(parrent.children);
 
-    const touchStart = (e) => {
-      // console.log(e, "start");
-      // setFirstPosition(e.touches[0].clientY);
-      firstPosition = e.touches[0].clientY;
-    };
+    const changeActive = () => {
+      const element = array.find(
+        (element) => element.offsetTop === parrent.scrollTop
+      );
+      const index = array.indexOf(element);
 
-    const touchMove = (e) => {
-      // setLastPosition(e.touches[0].clientY);
-      lastPosition = e.touches[0].clientY;
-      // console.log(e);
-    };
-
-    const touchEnd = () => {
-      // console.log(firstPosition, lastPosition);
-      if (firstPosition > lastPosition) {
-        // console.log("Next");
-        handleNext();
-      } else {
-        // console.log("Prev");
-        handlePrev();
+      if (index >= 0) {
+        setActiveSlide(index);
       }
-      // console.log(e, "end");
     };
 
-    const scrollEvent = (e) => {
-      // console.log(e.deltaMode);
-      // console.log(e);
-
-      //____________________________________
-      if (e.wheelDelta > 0 && Math.abs(e.deltaY) > 20) {
-        // console.log("prev");
-        // console.log(e);
-        handlePrev();
-      } else if (e.wheelDelta < 0 && Math.abs(e.deltaY) > 20) {
-        // console.log("next");
-        // console.log(e);
-        handleNext();
-      }
-      //____________________________________
-      // var st = window.pageYOffset || document.documentElement.scrollTop;
-      // if (st > lastScrollTop) {
-      //   // downscroll code
-      // } else if (st < lastScrollTop) {
-      //   // upscroll code
-      // } // else was horizontal scroll
-      // lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-    };
-
-    parrent.addEventListener("touchstart", touchStart);
-    parrent.addEventListener("touchend", touchEnd);
-    parrent.addEventListener("touchmove", touchMove);
-    parrent.addEventListener("wheel", scrollEvent);
-    // parrent.addEventListener("scroll", changeActive);
+    parrent.addEventListener("scroll", changeActive);
     // parrent.addEventListener("wheel", changeActive);
     // parrent.addEventListener("touchmove", changeActive);
 
     return () => {
-      parrent.removeEventListener("touchstart", touchStart);
-      parrent.removeEventListener("touchend", touchEnd);
-      parrent.removeEventListener("touchmove", touchMove);
-      parrent.removeEventListener("wheel", scrollEvent);
       // parrent.removeEventListener("wheel", changeActive);
       // parrent.removeEventListener("touchmove", changeActive);
-      // parrent.removeEventListener("scroll", changeActive);
+      parrent.removeEventListener("scroll", changeActive);
     };
-  }, [activeSlide, handlePrev, counter, handleNext]);
+  }, [activeSlide]);
 
   //______________________________________________________________________________________________
 
@@ -233,15 +184,12 @@ function Carousel() {
     <StyledCarousel>
       <CarouselSlider ref={ref}>
         {abouts.map((aboutItem, i) => (
-          <Item
-            $imgurl={aboutItem.imgUrl}
-            key={aboutItem.id}
-            ref={tanla}
-            className={`carousel-box ${
-              i === activeSlide ? "active-carousel" : ""
-            }`}
-          >
-            <StoryBox>
+          <Item $imgurl={aboutItem.imgUrl} key={aboutItem.id} ref={tanla}>
+            <StoryBox
+              className={`carousel-box ${
+                i === activeSlide ? "active-carousel" : ""
+              }`}
+            >
               <StoryTitle>{aboutItem.title}</StoryTitle>
               <StoryText>{aboutItem.subtitle}</StoryText>
             </StoryBox>

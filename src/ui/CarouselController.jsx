@@ -6,6 +6,7 @@ const Controller = styled.div`
   position: absolute;
   /* background-color: red; */
   @media (max-width: 768px) {
+    transition: all 0.5s;
     transform: scale(1.5) translateY(-20px);
   }
   /* position: relative; */
@@ -14,10 +15,13 @@ const Controller = styled.div`
   right: ${(props) => (props.$color === "white" ? "25px" : 0)};
   gap: 8px;
   bottom: 80px;
+  @media (max-width: 768px) {
+    bottom: 200px;
+  }
   /* transform: translate(-50%, -50%); */
   transition: all 1s;
-  animation-name: showController;
-  animation-duration: 0.5s;
+  /* animation-name: showController; */
+  /* animation-duration: 0.5s; */
 
   & button {
     border: none;
@@ -43,17 +47,15 @@ const Controller = styled.div`
     }
   }
 
-  @keyframes showController {
-    0% {
-      transform: translateX(80px);
+  /* @keyframes showController {
+    from {
+      transform: scale(0.9);
     }
-    75% {
-      transform: translateX(-10px);
-    }
+
     to {
-      transform: translateX(0);
+      transform: scale(1);
     }
-  }
+  } */
 `;
 
 const Dots = styled.ul`

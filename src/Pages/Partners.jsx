@@ -47,7 +47,6 @@ const CardContainer = styled.div`
 
 function Partners() {
   const { partners } = useSelector((state) => state.ui);
-  console.log(partners);
   return (
     <StyledPartners>
       <div>

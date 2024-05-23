@@ -6,7 +6,7 @@ function ProductsCuttingMachines() {
   return (
     <Products>
       <HeadText>Cutting Machines</HeadText>
-      <Paragraph width="50%">
+      <Paragraph>
         Here you can find list of cutting machines we can offer
       </Paragraph>
     </Products>

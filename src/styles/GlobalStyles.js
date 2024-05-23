@@ -213,6 +213,7 @@ img {
   /* background-color: blue; */
   /* visibility: hidden; */
   opacity: 0;
+  transition: all 0.3s;
 }
 
 
@@ -221,12 +222,12 @@ img {
   visibility: visible;
   opacity: 1;
   animation-name: showCarouse;
-  animation-duration: 0.3s;
+  animation-duration: 1s;
 }
 @keyframes showCarouse {
     from {
       /* opacity: 0; */
-      transform: scale(0.8) ;
+      transform: scale(0.9) ;
     }
     to {
       /* opacity: 100; */

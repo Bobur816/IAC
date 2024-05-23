@@ -6,7 +6,7 @@ function ProductsSingleMachines() {
   return (
     <Products>
       <HeadText>Single Machines</HeadText>
-      <Paragraph width="50%">
+      <Paragraph>
         Here you can find list of single machines we can offer
       </Paragraph>
     </Products>

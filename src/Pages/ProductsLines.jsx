@@ -6,7 +6,7 @@ function ProductsLines() {
   return (
     <Products>
       <HeadText>Processing Lines</HeadText>
-      <Paragraph width="50%">
+      <Paragraph>
         Here you can find list of processing lines and turn key projects we can
         offer
       </Paragraph>

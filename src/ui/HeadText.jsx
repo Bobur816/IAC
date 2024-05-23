@@ -10,6 +10,10 @@ const Styleh1 = css`
   animation-duration: 1s;
   margin-bottom: 2.4rem;
 
+  @media (max-width: 768px) {
+    font-size: 6.2rem;
+  }
+
   @keyframes example {
     from {
       transform: translateY(40px);
