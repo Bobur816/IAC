@@ -198,7 +198,6 @@ img {
 
 .right-animate{
   animation: fadein 3s;
-
   
 }
 
@@ -208,6 +207,30 @@ img {
     }
     to {
       opacity: 100;
+    }
+  }
+.carousel-box {
+  /* background-color: blue; */
+  /* visibility: hidden; */
+  opacity: 0;
+}
+
+
+.active-carousel {
+  /* background-color: yellow; */
+  visibility: visible;
+  opacity: 1;
+  animation-name: showCarouse;
+  animation-duration: 1s;
+}
+@keyframes showCarouse {
+    from {
+      /* opacity: 0; */
+      transform: scale(0.8) rotateX(45deg) translateX(-50px);
+    }
+    to {
+      /* opacity: 100; */
+      transform: scale(1);
     }
   }
 `;

@@ -12,7 +12,7 @@ const StyledSlider = styled.div`
 
   /* background-color: red; */
   /* overflow-y: scroll; */
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 `;
 
 const Test = styled.div`
@@ -41,8 +41,8 @@ const SliderBox = styled.ul`
   animation-name: animate1;
   overflow-x: hidden;
   overflow-y: scroll;
-  /* animation-duration: ; */
-  scroll-snap-type: y mandatory;
+  animation-duration: 1s;
+  /* scroll-snap-type: y mandatory; */
 
   &::-webkit-scrollbar {
     display: none;
@@ -50,6 +50,15 @@ const SliderBox = styled.ul`
 
   & li {
     scroll-snap-align: start;
+    /* background-color: yellow; */
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      height: 1px;
+      background-color: red;
+    }
   }
 
   @keyframes animate1 {
@@ -79,21 +88,28 @@ function MySlider() {
     const wrapper2 = wrapper.current;
 
     const array = Array.from(parrent.children);
-    const parrentTop = parrent.getBoundingClientRect().top;
+    const parrentCenter = parrent.getBoundingClientRect().height / 2;
 
-    console.log(parrentTop);
-    const childrenCord = array.map((el) => Math.abs(el.offsetTop - parrentTop));
+    console.log(parrentCenter);
+    const childrenCord = array.map((el) =>
+      Math.abs(el.offsetTop - parrentCenter)
+    );
 
     const getVerticalCenter = (e) => {
-      const childTop = e.getBoundingClientRect().top;
+      const childCenter =
+        e.getBoundingClientRect().bottom - e.getBoundingClientRect().height / 2;
+      // (e.getBoundingClientRect().bottom - e.getBoundingClientRect().top) / 2;
 
-      return childTop;
+      // console.log(childCenter, parrentCenter);
+      console.log(childCenter);
+      return childCenter;
     };
     console.log(childrenCord);
     const changeActive = () => {
       const childCords = array.map((el) => getVerticalCenter(el));
-      // console.log(childCords, parrentTop);
-      const orasi = childCords.map((el) => Math.abs(parrentTop - el));
+      // console.log(childCords, parrentCenter);
+      const orasi = childCords.map((el) => Math.abs(parrentCenter - el));
+      console.log(orasi);
       // getVerticalCenter(parrent.children[0]);
 
       //   const childrenCord = array.map((el) =>
@@ -120,20 +136,20 @@ function MySlider() {
       //   setActiveSlide(index);
       // }
 
-      if (index >= 0) {
-        setActiveSlide(index);
-      }
+      setTimeout(() => {
+        if (index >= 0) {
+          setActiveSlide(index);
+        }
+      }, 200);
     };
     // const changeByCick = (e) => {
     //   console.log(e);
     // };
 
-    parrent.addEventListener("wheel", changeActive);
-    parrent.addEventListener("swipe", changeActive);
+    parrent.addEventListener("scroll", changeActive);
 
     return () => {
-      parrent.removeEventListener("swipe", changeActive);
-      parrent.removeEventListener("wheel", changeActive);
+      parrent.removeEventListener("scroll", changeActive);
     };
   }, [activeslide]);
 

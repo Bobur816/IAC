@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import CarouselController from "./CarouselController";
 
 const StyledCarousel = styled.div`
@@ -26,10 +26,11 @@ const CarouselSlider = styled.ul`
   background-repeat: no-repeat;
   background-size: cover;
   /* transition: all 0.5s; */
-  position: absolute;
+  /* position: absolute; */
+  position: fixed;
   top: 0;
   left: 0;
-  height: 100dvh;
+  height: 100%;
   /* height: 300px; */
   width: 100%;
   /* overflow: hidden; */
@@ -58,13 +59,17 @@ const CarouselSlider = styled.ul`
 const Item = styled.li`
   /* background-image: url(${(props) => props.$imgurl}); */
   /* background-color: red; */
+  /* margin-top: 20px; */
+  /* border: 1px solid black; */
   scroll-snap-align: start;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  /* position: absolute; */
   position: relative;
-  height: 100%;
-  z-index: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
   animation-name: carouselbg;
   animation-duration: 1s;
 
@@ -94,6 +99,17 @@ const StoryBox = styled.div`
   padding: 2.4rem;
   gap: 2.4rem;
   color: #fff;
+  transition: all 0.5s;
+
+  /* ${(props) =>
+    props.$elementisvisible
+      ? css`
+          background-color: red;
+          transform: scale(1);
+        `
+      : css`
+          background-color: green;
+        `} */
 `;
 const StoryTitle = styled.h4`
   font-family: "New York";
@@ -125,6 +141,7 @@ function Carousel() {
   //   console.log(activeSlide);
   const ref = useRef();
   const tanla = useRef();
+
   // ref.current.scrollTop = position;
   function handlePrev() {
     setActiveSlide((e) => (e === 0 ? e : e - 1));
@@ -168,9 +185,13 @@ function Carousel() {
   return (
     <StyledCarousel>
       <CarouselSlider ref={ref}>
-        {abouts.map((aboutItem) => (
-          <Item $imgurl={aboutItem.imgUrl} key={aboutItem.id}>
-            <StoryBox ref={tanla}>
+        {abouts.map((aboutItem, i) => (
+          <Item $imgurl={aboutItem.imgUrl} key={aboutItem.id} ref={tanla}>
+            <StoryBox
+              className={`carousel-box ${
+                i === activeSlide ? "active-carousel" : ""
+              }`}
+            >
               <StoryTitle>{aboutItem.title}</StoryTitle>
               <StoryText>{aboutItem.subtitle}</StoryText>
             </StoryBox>

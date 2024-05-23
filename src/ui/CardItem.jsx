@@ -1,22 +1,33 @@
 /* eslint-disable react/prop-types */
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Button from "./Button";
 import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { createRef, useEffect, useRef, useState } from "react";
 
 const StyledCard = styled(Link)`
   /* background-color: darkblue; */
   background-color: #fff;
-  /* width: 20%; */
-  /* width: 35rem; */
-  /* min-width: 300px; */
-  /* width: 25%; */
-  /* height: 36rem; */
+  /* display: none; */
   box-sizing: border-box;
-  padding: 12px;
   display: flex;
+  padding: 12px;
+  /* display: flex; */
   flex-direction: column;
+  transition: all 1s;
   justify-content: space-between;
+  transform: scale(0.5);
+  opacity: 0;
+  ${(props) =>
+    props.$elementisvisible
+      ? css`
+          /* background-color: red; */
+          transform: scale(1);
+          opacity: 1;
+        `
+      : css`
+          transform: scale(0.5);
+          opacity: 0;
+        `}
 
   & h2 {
     font-size: 2rem;
@@ -52,10 +63,22 @@ const ImgBox = styled.div`
 `;
 function CardItem({ card }) {
   const cardRef = useRef();
-  console.log(cardRef.current);
-  useEffect(() => {});
+  const [elementIsvisible, setElementIsvisible] = useState();
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      setElementIsvisible(entry.isIntersecting);
+      if (entry.isIntersecting) observer.unobserve(entry.target);
+    }, {});
+
+    observer.observe(cardRef.current);
+  });
   return (
-    <StyledCard to={`/products/${card.id}`} ref={cardRef}>
+    <StyledCard
+      to={`/products/${card.id}`}
+      ref={cardRef}
+      $elementisvisible={elementIsvisible}
+    >
       <ImgBox>
         <img src={card.imgUrl} alt="" />
       </ImgBox>

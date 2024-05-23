@@ -13,7 +13,7 @@ const StyledLi = styled.li`
   display: flex;
   flex-direction: column;
   transition: all 0.1s;
-  margin-left: 8px;
+  margin-left: 10px;
   padding-left: 30px;
   /* height: 100vh; */
   /* overflow: hidden; */
