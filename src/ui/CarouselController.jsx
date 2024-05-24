@@ -16,7 +16,7 @@ const Controller = styled.div`
   gap: 8px;
   bottom: 80px;
   @media (max-width: 768px) {
-    bottom: 200px;
+    bottom: 100px;
   }
   /* transform: translate(-50%, -50%); */
   transition: all 1s;
@@ -33,10 +33,6 @@ const Controller = styled.div`
     & svg {
       font-size: 24px;
       color: ${(props) => props.$color};
-    }
-
-    &:hover {
-      transform: scale(1.3);
     }
 
     &:first-child:active {

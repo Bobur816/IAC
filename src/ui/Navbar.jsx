@@ -12,17 +12,20 @@ const StyledNavbar = styled.header`
   /* transition: all 0.3s; */
   /* box-shadow: 0 0 8px px white inset; */
 
+  position: fixed;
+  z-index: 5;
   ${(props) =>
-    props.$pageUrl.includes("products") || props.$pageUrl.includes("partners")
+    props.$pageUrl.includes("products") ||
+    props.$pageUrl.includes("partners") ||
+    props.$pageUrl.includes("projects")
       ? css`
-          position: fixed;
           -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
+          /* z-index: 2; */
         `
       : css``};
 
   width: 100%;
-  z-index: 1;
 `;
 
 const Navdiv = styled.nav`

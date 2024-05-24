@@ -13,6 +13,7 @@ const StyledProjects = styled.div`
       width: 100%;
     }
   }
+  padding-top: 14rem;
   width: 100%;
   height: 100%;
 `;

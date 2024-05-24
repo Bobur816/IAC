@@ -45,7 +45,7 @@ const StyledLi = styled.li`
 
   &:hover h3,
   &:hover p {
-    color: green;
+    /* color: green; */
   }
 
   & div {

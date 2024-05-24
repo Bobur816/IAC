@@ -10,6 +10,7 @@ import { toggleFormOpen } from "../ui/uiSlice";
 const StyledProduct = styled.div`
   /* background-color: red; */
   height: 100%;
+
   padding-top: 14rem;
   padding-bottom: 11rem;
 `;

@@ -78,8 +78,8 @@ const GlobalStyles = createGlobalStyle`
 }
 
 html {
-  height: -webkit-fill-available;
   font-size: 62.5%;
+  height: -webkit-fill-available;
   
   @media (max-width: 1024px) {
     font-size: 50%;
@@ -91,19 +91,25 @@ body {
   font-family: "Inter", sans-serif;
   overflow-x: hidden;
   transition: color 0.3s, background-color 0.3s;
-  height: 100vh;
+  /* height: 100vh; */
   line-height: 1.5;
   font-size: 1.6rem;
-  height: -webkit-fill-available;
+  /* background-color: red; */
+  /* height: -webkit-fill-available; */
 }
 
-input,
+#root {
+  /* background-color: yellow; */
+  min-height: 100vh;
+}
+
+/* input,
 button,
 textarea,
 select {
   font: inherit;
   color: inherit;
-}
+} */
 
 button {
   cursor: pointer;

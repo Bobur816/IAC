@@ -16,11 +16,11 @@ const NavList = styled.ul`
     height: 100vh;
     padding: 70px 0 30px 30px;
     top: 0;
-    z-index: -1;
     left: 0;
     flex-direction: column;
     transform: ${(props) =>
       props.$isopen === "true" ? "translateX(0)" : "translateX(-100%)"};
+    z-index: -1;
   }
   font-size: 16px;
   font-weight: 400;
@@ -47,11 +47,30 @@ const StyledNavLink = styled(NavLink)`
   &.active {
     color: var(--color-green-700);
     border-color: var(--color-green-700);
+
+    @media (max-width: 768px) {
+      color: #fff;
+    }
+  }
+  @media (max-width: 768px) {
+    color: #fff;
   }
 `;
 const StyledNavLink2 = styled(Link)`
   border-bottom: 1px solid transparent;
   padding: 4px 5px;
+
+  &.active {
+    color: var(--color-green-700);
+    border-color: var(--color-green-700);
+
+    @media (max-width: 768px) {
+      color: #fff;
+    }
+  }
+  @media (max-width: 768px) {
+    color: #fff;
+  }
   /* &.active {
     color: var(--color-green-700);
     border-color: var(--color-green-700);
@@ -67,6 +86,8 @@ const ForViewChange = styled.div`
 function MainNav() {
   const homeurl = useLocation().pathname;
   const { isMobileNavOpen } = useSelector((state) => state.ui);
+  const isInProducts = homeurl.includes("products");
+  console.log(isInProducts);
   const isopen = isMobileNavOpen.toString();
   const dispatch = useDispatch();
   // const isHomeUrl = homeUrl === "/dashboard";
@@ -99,7 +120,11 @@ function MainNav() {
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink2 onClick={handleProducts} to="#">
+          <StyledNavLink2
+            className={`${isInProducts ? "active" : ""}`}
+            onClick={handleProducts}
+            to="#"
+          >
             <span>Products</span>
           </StyledNavLink2>
 

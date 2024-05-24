@@ -37,24 +37,30 @@ const StyledAppLayout = styled.div`
   -o-transition: background 0.7s;
   transition: background 0.7s;
   /* position: relative; */
-  /* background-color: red; */
+  /* background-color: #ff000067; */
   background-attachment: fixed;
   background-repeat: no-repeat;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
   display: grid;
+  min-height: 100vh;
+  grid-template-rows: 1fr auto;
 
   ${(props) =>
     props.$pageurl.includes("products") || props.$pageurl.includes("partners")
       ? css`
-          grid-template-rows: 1fr auto;
-          height: 100%;
+          /* grid-template-rows: 1fr auto;
+          height: 100%; */
         `
       : css`
-          grid-template-rows: auto 1fr auto;
-          height: 100vh;
+          /* grid-template-rows: auto 1fr auto;
+          height: 100vh; */
         `}
 `;
 
 const Main = styled.main`
+  /* background-color: #0080008d; */
   width: 100%;
   & > div {
     height: 100%;

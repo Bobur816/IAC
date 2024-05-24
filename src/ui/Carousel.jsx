@@ -7,7 +7,7 @@ import CarouselController from "./CarouselController";
 const StyledCarousel = styled.div`
   /* background-color: red; */
   display: block;
-  /* position: relative; */
+  /* position: absolute; */
   overflow: hidden;
   top: 0;
   left: 0;
@@ -21,7 +21,7 @@ const CarouselSlider = styled.ul`
   /* background-image: url(${(props) => props.$imgurl}); */
   background-image: url("/CarouselBack.png");
   filter: brightness(0.8);
-  /* background-color: red; */
+  /* background-color: #ff000057; */
   background-position: center;
   @media (max-width: 768px) {
     /* background-position: 58% 50%; */
@@ -31,13 +31,13 @@ const CarouselSlider = styled.ul`
   background-size: cover;
   /* transition: all 0.5s; */
   /* position: absolute; */
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   left: 0;
   height: 100%;
   /* height: 300px; */
   width: 100%;
-  overflow: hidden;
+  overflow-x: scroll;
 
   scroll-behavior: smooth;
   /* scroll-snap-type: y mandatory; */
@@ -49,7 +49,7 @@ const CarouselSlider = styled.ul`
 
 const Item = styled.li`
   /* background-image: url(${(props) => props.$imgurl}); */
-  background-color: #ffff0081;
+  /* background-color: #ffff0081; */
   /* margin-top: 200px; */
   /* border: 1px solid black; */
   scroll-snap-align: start;
@@ -74,7 +74,7 @@ const StoryBox = styled.div`
   width: 50%;
   @media (max-width: 768px) {
     width: 75%;
-    bottom: 30rem;
+    bottom: 10rem;
     background-color: rgba(0, 0, 0, 0.438);
   }
   position: absolute;

@@ -14,6 +14,7 @@ const SideBg = styled.div`
   & > div {
     height: 100%;
     width: 100%;
+    /* background-color: #ff000073; */
     background-image: url(${(props) => props.$dashright});
     background-position: center;
     background-size: cover;
@@ -39,7 +40,7 @@ const SideBg = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  z-index: -1;
+  z-index: 1;
   /* transition: all 0.1s; */
   overflow: hidden;
 
@@ -60,13 +61,25 @@ const SideBg = styled.div`
 
 const DashLeft = styled.div`
   width: 40%;
+  /* background-color: red; */
   height: 100%;
+  /* width: 100%; */
   padding-right: 6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: 2.4rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  padding-left: 3.2rem;
+
+  @media (max-width: 768px) {
+    padding-left: 2rem;
+    /* background-color: red; */
+  }
 
   @media (max-width: 1130px) {
     width: 100%;

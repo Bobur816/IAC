@@ -5,6 +5,8 @@ import Container from "./Container";
 
 const FooterWrapper = styled.footer`
   /* background-color: #ffff007f; */
+  position: relative;
+  width: 100%;
   height: 7.5rem;
   z-index: 1;
   bottom: 0;

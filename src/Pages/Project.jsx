@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 const StyledProject = styled.div`
   display: flex;
   height: 100%;
+  margin-top: 14rem;
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 3rem;
