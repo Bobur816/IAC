@@ -13,13 +13,8 @@ const StyledPartners = styled.div`
 
   padding-top: 14rem;
   margin-bottom: 100px;
-
-  & > div {
-    /* position: absolute; */
-  }
 `;
 const ForHead = styled.div`
-  /* width: 100%; */
   /* background-color: blue; */
   flex-direction: column;
   display: flex;
@@ -30,19 +25,15 @@ const CardContainer = styled.div`
   margin-top: 3rem;
   display: grid;
   grid-template-columns: auto auto auto;
-  /* flex-wrap: nowrap; */
   gap: 5rem;
   @media (max-width: 1440px) {
     grid-template-columns: auto auto;
-    /* gap: 63px; */
   }
   @media (max-width: 768px) {
     grid-template-columns: auto;
     justify-content: flex-start;
     flex-direction: column;
-    /* gap: 63px; */
   }
-  /* background-color: yellow; */
 `;
 
 function Partners() {

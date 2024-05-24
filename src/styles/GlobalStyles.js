@@ -79,8 +79,8 @@ const GlobalStyles = createGlobalStyle`
 
 html {
   font-size: 62.5%;
-  height: -webkit-fill-available;
-  
+  /* height: -webkit-fill-available; */
+  /* min-height: 100vh; */
   @media (max-width: 1024px) {
     font-size: 50%;
   }
@@ -101,6 +101,7 @@ body {
 #root {
   /* background-color: yellow; */
   /* min-height: 100vh; */
+  min-height: 100vh;
   min-height: 100svh;
   /* background-color: yellow; */
 }

@@ -23,7 +23,6 @@ const SideBg = styled.div`
     @media (max-width: 1130px) {
       filter: brightness(0.5);
     }
-    /* background-clip; */
   }
   ${(props) =>
     props.$pageurl === "/dashboard"
@@ -33,7 +32,6 @@ const SideBg = styled.div`
       : css`
           transform: scale(0.5);
         `}
-  /* width: 50%; */
   width: 720px;
   min-width: 50vw;
   height: 100%;
@@ -41,7 +39,6 @@ const SideBg = styled.div`
   top: 0;
   right: 0;
   z-index: 1;
-  /* transition: all 0.1s; */
   overflow: hidden;
 
   @media (max-width: 1130px) {
@@ -63,7 +60,6 @@ const DashLeft = styled.div`
   width: 40%;
   /* background-color: red; */
   height: 100%;
-  /* width: 100%; */
   padding-right: 6rem;
   display: flex;
   flex-direction: column;

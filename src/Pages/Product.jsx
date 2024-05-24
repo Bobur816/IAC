@@ -8,7 +8,6 @@ import ProductImgSlider from "../ui/ProductImgSlider";
 import { toggleFormOpen } from "../ui/uiSlice";
 
 const StyledProduct = styled.div`
-  /* background-color: red; */
   height: 100%;
 
   padding-top: 14rem;
@@ -19,7 +18,6 @@ const Main = styled.div`
   margin-top: 3rem;
   display: flex;
   height: 100%;
-  /* background-color: yellow; */
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 3rem;
@@ -30,13 +28,11 @@ const Main = styled.div`
 `;
 
 const ImgCarousel = styled.div`
-  /* background-color: red; */
   width: 50%;
   height: 50rem;
 `;
 
 const MainText = styled.div`
-  /* background-color: blue; */
   padding: 20px 44px;
 
   @media (max-width: 768px) {

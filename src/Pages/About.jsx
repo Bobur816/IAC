@@ -28,7 +28,7 @@ function About() {
         <Paragraph>
           Celebrating over two decades of excellence in the trading of
           agricultural and food products to and from Central Asia, IAC Group has
-          been a pioneering force in the region's food industry landscape.
+          been a pioneering force in the region`s food industry landscape.
         </Paragraph>
         <Button to="/about/carousel">See more historical steps</Button>
       </StyledAbout>

@@ -44,6 +44,7 @@ const StyledAppLayout = styled.div`
   -moz-background-size: cover;
   -webkit-background-size: cover;
   display: grid;
+  min-height: 100vh;
   min-height: 100svh;
   grid-template-rows: 1fr auto;
 

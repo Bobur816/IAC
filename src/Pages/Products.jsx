@@ -4,7 +4,6 @@ import Dropdown from "../ui/Dropdown";
 
 const StyledProducts = styled.div`
   width: 100%;
-  /* background-color: red; */
   display: flex;
   @media (max-width: 768px) {
     flex-direction: column;
@@ -13,14 +12,9 @@ const StyledProducts = styled.div`
       width: 100%;
     }
   }
-  /* position: relative; */
-  /* overflow-y: scroll; */
-  /* overflow: visible; */
-  /* justify-content: space-around; */
   flex-direction: column;
   padding: 14rem 0;
   & > div {
-    /* position: absolute; */
     width: 100%;
   }
 
@@ -31,30 +25,22 @@ const StyledProducts = styled.div`
 
 const ForHead = styled.div`
   width: 100%;
-  /* background-color: blue; */
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-  /* margin-bottom: 6.8rem; */
 `;
 
 const Category = styled.div`
-  /* position: fixed; */
   margin-top: 15px;
   display: none;
   top: 100px;
-  /* width: 130px; */
   margin-left: auto;
   margin-right: 10px;
-  /* right: 100px; */
   z-index: 1;
-  /* background-color: #fff; */
-  /* background-color: red; */
   justify-content: flex-end;
   flex-wrap: nowrap;
   align-items: center;
   padding: 12px 4px;
-  /* font-size: 10px; */
   @media (max-width: 768px) {
     display: flex;
   }

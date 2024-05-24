@@ -7,8 +7,9 @@ import { useParams } from "react-router-dom";
 const StyledProject = styled.div`
   display: flex;
   height: 100%;
-  margin-top: 14rem;
+  /* overflow: hidden; */
   @media (max-width: 768px) {
+    padding-top: 10rem;
     flex-direction: column;
     gap: 3rem;
     & > div {
@@ -30,15 +31,31 @@ const LefttSide = styled.div`
 
 const RightSide = styled.div`
   position: relative;
+  padding-top: 7rem;
   /* padding-top: 10px; */
   /* background-color: red; */
+  /* background-color: blue; */
   height: 100%;
   width: 50%;
   overflow-y: scroll;
+  @media (max-width: 768px) {
+    padding-top: 0;
+  }
 
   &::-webkit-scrollbar {
     display: none;
   }
+
+  /* &::-webkit-scrollbar {
+    position: absolute;
+    width: 5px;
+    background-color: #eef6ee;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #d0d4d0;
+    border-radius: 10px;
+  } */
 
   & img {
     width: 100%;
