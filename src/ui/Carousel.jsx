@@ -69,7 +69,7 @@ const StoryBox = styled.div`
   background-color: rgba(0, 0, 0, 0.438);
   display: flex;
   bottom: 7.5rem;
-  left: 4.4rem;
+  left: 3rem;
   flex-direction: column;
   width: 50%;
   @media (max-width: 768px) {
@@ -248,6 +248,14 @@ function Carousel() {
           </Item>
         ))}
       </CarouselSlider>
+      <CarouselController
+        color="white"
+        data={abouts}
+        handleNext={handleNext}
+        handlePrev={handlePrev}
+        activeItem={activeSlide}
+        selectActiveItem={selectSlide}
+      />
       {/* <CarouselController>
         <button onClick={handlePrev}>
           <IoIosArrowUp />
@@ -267,14 +275,6 @@ function Carousel() {
           <IoIosArrowDown />
         </button>
       </CarouselController> */}
-      <CarouselController
-        color="white"
-        data={abouts}
-        handleNext={handleNext}
-        handlePrev={handlePrev}
-        activeItem={activeSlide}
-        selectActiveItem={selectSlide}
-      />
     </StyledCarousel>
   );
 }

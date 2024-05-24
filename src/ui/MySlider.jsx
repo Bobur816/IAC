@@ -200,19 +200,21 @@ function MySlider() {
   };
 
   return (
-    <StyledSlider>
-      <Test ref={wrapper}>
-        <SliderBox ref={ref}>
-          {projects.map((item, i) => (
-            <SliderItem
-              project={item}
-              isActive={`${projects[activeslide] === item ? "active" : ""}`}
-              key={item.id}
-              onClick={() => selectSlide(i)}
-            />
-          ))}
-        </SliderBox>
-      </Test>
+    <>
+      <StyledSlider>
+        <Test ref={wrapper}>
+          <SliderBox ref={ref}>
+            {projects.map((item, i) => (
+              <SliderItem
+                project={item}
+                isActive={`${projects[activeslide] === item ? "active" : ""}`}
+                key={item.id}
+                onClick={() => selectSlide(i)}
+              />
+            ))}
+          </SliderBox>
+        </Test>
+      </StyledSlider>
       <CarouselController
         color="green"
         data={projects}
@@ -221,7 +223,7 @@ function MySlider() {
         handleNext={handleNext}
         handlePrev={handlePrev}
       />
-    </StyledSlider>
+    </>
   );
 }
 

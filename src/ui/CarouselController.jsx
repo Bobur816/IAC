@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const Controller = styled.div`
@@ -16,7 +17,7 @@ const Controller = styled.div`
   gap: 8px;
   bottom: 80px;
   @media (max-width: 768px) {
-    bottom: 100px;
+    bottom: ${(props) => (props.$pageurl === "/projects" ? "30px" : "100px")};
   }
   /* transform: translate(-50%, -50%); */
   transition: all 1s;
@@ -69,8 +70,9 @@ function CarouselController({
   handlePrev,
   handleNext,
 }) {
+  const pageurl = useLocation().pathname;
   return (
-    <Controller $color={color}>
+    <Controller $color={color} $pageurl={pageurl}>
       <button onClick={handlePrev}>
         <IoIosArrowUp />
       </button>

@@ -10,6 +10,7 @@ const StyledAbout = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding-top: 10rem;
 
   & p {
     width: 70%;

@@ -100,7 +100,9 @@ body {
 
 #root {
   /* background-color: yellow; */
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  min-height: 100svh;
+  /* background-color: yellow; */
 }
 
 /* input,
